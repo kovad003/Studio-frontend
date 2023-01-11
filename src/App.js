@@ -1,25 +1,34 @@
-import logo from "./logo.svg";
-import "./App.css";
+import { useState } from "react";
+import { ThemeProvider } from "styled-components";
+import { ToastContainer, Slide } from "react-toastify";
+import GlobalStyles from "./GlobalStyles";
+import themes from "./themes";
+import CustomRouter from "./CustomRouter";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hi AD says everyonesdfsdf <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [currentTheme, setCurrentTheme] = useState(false);
+
+	return (
+		<>
+			<GlobalStyles />
+			<ThemeProvider
+				theme={currentTheme ? themes.dark : themes.default}
+			></ThemeProvider>
+			<CustomRouter />
+			<ToastContainer
+				position="bottom-right"
+				autoClose={5000}
+				hideProgressBar={false}
+				newestOnTop={true}
+				transition={Slide}
+				rtl={false}
+				closeOnClick
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+			/>
+		</>
+	);
 }
 
 export default App;
