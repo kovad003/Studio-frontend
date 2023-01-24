@@ -3,7 +3,7 @@ import { ThemeProvider } from "styled-components";
 import { ToastContainer, Slide } from "react-toastify";
 import GlobalStyles from "./GlobalStyles";
 import CustomRouter from "./CustomRouter";
-import themes from "./themes";
+import theme from "./theme";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
@@ -12,10 +12,9 @@ function App() {
 	return (
 		<>
 			<GlobalStyles />
-			<ThemeProvider
-				theme={currentTheme ? themes.dark : themes.default}
-			></ThemeProvider>
-			<CustomRouter />
+			<ThemeProvider theme={currentTheme ? theme.dark : theme.default}>
+				<CustomRouter />
+			</ThemeProvider>
 			<ToastContainer
 				position="bottom-right"
 				autoClose={5000}
