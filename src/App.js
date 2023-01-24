@@ -2,8 +2,9 @@ import { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { ToastContainer, Slide } from "react-toastify";
 import GlobalStyles from "./GlobalStyles";
-import themes from "./themes";
 import CustomRouter from "./CustomRouter";
+import themes from "./themes";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
 	const [currentTheme, setCurrentTheme] = useState(false);

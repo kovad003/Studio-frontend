@@ -7,7 +7,7 @@ const initialState = {
 	test: "test",
 };
 
-export const AppProvider = ({ children }) => {
+export const AppContextProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
 	return (
