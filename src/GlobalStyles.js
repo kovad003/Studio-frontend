@@ -7,7 +7,11 @@ const GlobalStyles = createGlobalStyle`
 		box-sizing: border-box;
 	}
 	html, body {
-		font-family: "Poppins", sans-serif;
+		font-family: 'Lexend', sans-serif;
+	}
+
+	a{
+		text-decoration: none;
 	}
 `;
 

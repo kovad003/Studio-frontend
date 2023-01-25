@@ -20,6 +20,7 @@ const StyledCard = styled.section`
 	border-radius: 20px;
 	box-shadow: 0 4px 30px 0 rgba(11, 99, 229, 0.13);
 	position: relative;
+	overflow: hidden;
 
 	.card-logo {
 		position: absolute;

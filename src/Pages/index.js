@@ -1,5 +1,5 @@
 import Dashboard from "./DashboardPage";
-import Login from "./LoginPage";
+import Login from "./LoginPage/LoginPage";
 import Tickets from "./TicketPage";
 import Welcome from "./WelcomePage";
 import Root from "./RootPage.js";
