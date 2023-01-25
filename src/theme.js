@@ -20,6 +20,7 @@ const theme = {
 		dangerBg: "#FF7B7B",
 		lightBtnBg: "#CEE0FA",
 		darkTextColor: "#333",
+		sidebarSelectedBg: "#30425b",
 	},
 	dark: {},
 };
