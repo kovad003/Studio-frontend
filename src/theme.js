@@ -6,7 +6,7 @@ const theme = {
 		bgColor: "#F1F5F9",
 		darkBgColor: "#142847",
 		white: "#fff",
-		inputFocusBg: "#EBF5FF",
+		inputFocusBg: "#eff5fb",
 		inputBorder: "#C0C0C0",
 		sidebarBtnHoverBg: "#E5F0FF",
 		sidebarBtnColor: "#979797",
@@ -19,6 +19,7 @@ const theme = {
 		reviewColor: "#674C32",
 		dangerBg: "#FF7B7B",
 		lightBtnBg: "#CEE0FA",
+		darkTextColor: "#333",
 	},
 	dark: {},
 };
