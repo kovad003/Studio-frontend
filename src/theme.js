@@ -21,6 +21,8 @@ const theme = {
 		lightBtnBg: "#CEE0FA",
 		darkTextColor: "#333",
 		sidebarSelectedBg: "#30425b",
+		projectItemBg: "#F6F6F6",
+		projectItemHover: "#E2EAF5",
 	},
 	dark: {},
 };

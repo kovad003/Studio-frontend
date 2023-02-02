@@ -4,9 +4,9 @@ import styled from "styled-components";
 const SidebarListItem = ({ id, name, icon, selected, setSelected }) => {
 	return (
 		<StyledSidebarListItem
-			selected={selected}
 			id={id}
 			onClick={() => setSelected(id)}
+			className={selected === id ? "selected" : ""}
 		>
 			<span>{icon}</span>
 			<span>{name}</span>
@@ -23,17 +23,16 @@ const StyledSidebarListItem = styled.li`
 	width: 100%;
 	cursor: pointer;
 	border-radius: 10px;
-	color: ${(props) =>
-		props.selected === props.id
-			? props.theme.white
-			: props.theme.sidebarBtnColor};
+	color: ${(props) => props.theme.sidebarBtnColor};
 	transition: all 0.3s ease;
-	background-color: ${(props) =>
-		props.selected === props.id
-			? props.theme.sidebarSelectedBg
-			: "transparent"};
+	background-color: transparent;
 
-	:hover {
+	&.selected {
+		background-color: ${(props) => props.theme.darkBgColor};
+		color: ${(props) => props.theme.white};
+	}
+
+	:not(.selected):hover {
 		background-color: ${(props) => props.theme.sidebarBtnHoverBg};
 		color: ${(props) => props.theme.primaryColor};
 	}
@@ -47,7 +46,7 @@ const StyledSidebarListItem = styled.li`
 	}
 
 	span:last-child {
-		font-size: 18px;
+		font-size: 16px;
 		display: flex;
 		align-items: center;
 		padding-left: 20px;
