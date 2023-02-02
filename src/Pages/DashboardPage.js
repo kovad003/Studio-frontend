@@ -1,13 +1,29 @@
-import { useState } from "react";
 import styled from "styled-components";
-import { Sidebar, Dashboard } from "../Components";
+import {
+	Sidebar,
+	Dashboard,
+	DashboardHeader,
+	Updates,
+	Users,
+} from "../Components";
+import { useAppContext } from "../context/AppContext";
 
 const DashboardPage = () => {
-	const [currentPage, setCurrentPage] = useState("home");
+	const { currentPage } = useAppContext();
+
 	return (
 		<StyledDashboardPage>
 			<Sidebar />
-			<Dashboard />
+			<div>
+				<DashboardHeader />
+				{currentPage === "Home" ? (
+					<Dashboard />
+				) : currentPage === "Updates" ? (
+					<Updates />
+				) : (
+					<Users />
+				)}
+			</div>
 		</StyledDashboardPage>
 	);
 };
@@ -17,6 +33,10 @@ const StyledDashboardPage = styled.section`
 	height: 100vh;
 	width: 100vw;
 	display: flex;
+
+	> div {
+		flex: 1;
+	}
 `;
 
 export default DashboardPage;

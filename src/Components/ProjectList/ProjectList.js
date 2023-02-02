@@ -7,7 +7,7 @@ const ProjectList = () => {
 	return (
 		<StyledProjectList>
 			{data.map((item) => {
-				return <ProjectListItem {...item} />;
+				return <ProjectListItem key={item.projectId} {...item} />;
 			})}
 		</StyledProjectList>
 	);

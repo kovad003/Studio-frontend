@@ -1,22 +1,17 @@
 import React from "react";
 import ProjectListContainer from "../ProjectList/ProjectListContainer";
-import DashboardHeader from "../DashboardHeader/DashboardHeader";
-import DashboardContent from "./DashboardContent";
 import styled from "styled-components";
 
 const Dashboard = () => {
 	return (
 		<StyledDashboardComponent>
-			<DashboardHeader />
-			<DashboardContent>
-				<ProjectListContainer />
-			</DashboardContent>
+			<ProjectListContainer />
 		</StyledDashboardComponent>
 	);
 };
 
 const StyledDashboardComponent = styled.div`
-	flex: 1;
+	padding: 20px;
 `;
 
 export default Dashboard;

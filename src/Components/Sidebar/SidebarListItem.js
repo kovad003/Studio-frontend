@@ -1,11 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import { useAppContext } from "../../context/AppContext";
 
 const SidebarListItem = ({ id, name, icon, selected, setSelected }) => {
+	const { changeDashboardPage } = useAppContext();
+
+	const handleOnClick = () => {
+		setSelected(id);
+		changeDashboardPage(name);
+	};
 	return (
 		<StyledSidebarListItem
 			id={id}
-			onClick={() => setSelected(id)}
+			onClick={handleOnClick}
 			className={selected === id ? "selected" : ""}
 		>
 			<span>{icon}</span>
