@@ -7,6 +7,7 @@ import Dashboard from "./Dashbord/Dashboard";
 import DashboardHeader from "./DashboardHeader/DashboardHeader";
 import Updates from "./Updates/Updates";
 import Users from "./Users/Users";
+import ProjectInfo from "./ProjectInfo/ProjectInfo";
 
 export {
 	Button,
@@ -18,4 +19,5 @@ export {
 	DashboardHeader,
 	Updates,
 	Users,
+	ProjectInfo,
 };

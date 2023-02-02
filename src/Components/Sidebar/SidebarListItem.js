@@ -2,18 +2,25 @@ import React from "react";
 import styled from "styled-components";
 import { useAppContext } from "../../context/AppContext";
 
-const SidebarListItem = ({ id, name, icon, selected, setSelected }) => {
-	const { changeDashboardPage } = useAppContext();
+import { Link } from "react-router-dom";
 
+const SidebarListItem = ({ id, name, icon, selected, setSelected }) => {
 	const handleOnClick = () => {
 		setSelected(id);
-		changeDashboardPage(name);
 	};
+	const to = `${
+		name === "Home"
+			? "/dashboard"
+			: name === "Updates"
+			? "/dashboard/updates"
+			: "/dashboard/users"
+	}`;
 	return (
 		<StyledSidebarListItem
 			id={id}
 			onClick={handleOnClick}
 			className={selected === id ? "selected" : ""}
+			to={to}
 		>
 			<span>{icon}</span>
 			<span>{name}</span>
@@ -21,7 +28,7 @@ const SidebarListItem = ({ id, name, icon, selected, setSelected }) => {
 	);
 };
 
-const StyledSidebarListItem = styled.li`
+const StyledSidebarListItem = styled(Link)`
 	width: 127px;
 	height: 40px;
 	display: flex;
