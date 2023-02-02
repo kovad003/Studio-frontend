@@ -17,6 +17,7 @@ const Sidebar = () => {
 const StyledSidebar = styled.section`
 	background-color: ${(props) => props.theme.white};
 	border-right: 1px solid ${(props) => props.theme.borderColor};
+	width: 250px;
 `;
 
 export default Sidebar;
