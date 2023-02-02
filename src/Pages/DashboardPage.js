@@ -1,28 +1,13 @@
 import styled from "styled-components";
-import {
-	Sidebar,
-	Dashboard,
-	DashboardHeader,
-	Updates,
-	Users,
-} from "../Components";
-import { useAppContext } from "../context/AppContext";
+import { Outlet } from "react-router";
+import { Sidebar } from "../Components";
 
 const DashboardPage = () => {
-	const { currentPage } = useAppContext();
-
 	return (
 		<StyledDashboardPage>
 			<Sidebar />
 			<div>
-				<DashboardHeader />
-				{currentPage === "Home" ? (
-					<Dashboard />
-				) : currentPage === "Updates" ? (
-					<Updates />
-				) : (
-					<Users />
-				)}
+				<Outlet />
 			</div>
 		</StyledDashboardPage>
 	);

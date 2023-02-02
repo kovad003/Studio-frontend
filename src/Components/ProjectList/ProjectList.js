@@ -13,7 +13,7 @@ const ProjectList = () => {
 	);
 };
 
-const StyledProjectList = styled.ul`
+const StyledProjectList = styled.div`
 	list-style: none;
 	width: 100%;
 	padding: 10px 0;

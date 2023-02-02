@@ -2,6 +2,7 @@ import React from "react";
 import Avatar from "./Avatar";
 import Status from "../Status/Status";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const ProjectListItem = ({
 	clientName,
@@ -13,7 +14,7 @@ const ProjectListItem = ({
 	const names = clientName.split(" ");
 	const letter = names[0][0] + names[1][0];
 	return (
-		<StyledProjectListItem>
+		<StyledProjectListItem to={`/dashboard/project/${projectId}`}>
 			<span
 				className="indicator"
 				style={{ backgroundColor: status === "done" ? "#A2DAB8" : "#6FB8FC" }}
@@ -32,7 +33,7 @@ const ProjectListItem = ({
 	);
 };
 
-const StyledProjectListItem = styled.li`
+const StyledProjectListItem = styled(Link)`
 	display: grid;
 	grid-template-columns: repeat(10, 1fr);
 	background-color: ${(props) => props.theme.projectItemBg};
@@ -44,6 +45,7 @@ const StyledProjectListItem = styled.li`
 	cursor: pointer;
 	position: relative;
 	font-size: 14px;
+	color: black;
 
 	:hover {
 		background-color: ${(props) => props.theme.projectItemHover};
