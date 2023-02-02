@@ -23,7 +23,7 @@ const StyledProjectList = styled.section`
 	border: 1px solid ${(props) => props.theme.borderColor};
 	padding: 20px;
 	width: 100%;
-	height: 100%;
+	height: fit-content;
 
 	.project-list--titles {
 		width: 100%;

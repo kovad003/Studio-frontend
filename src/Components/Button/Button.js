@@ -19,7 +19,7 @@ const buttonCommonStyles = css`
 	color: #fff;
 	font-size: 16px;
 	font-weight: 600;
-	height: 44px;
+	height: 42px;
 	cursor: pointer;
 	display: flex;
 	align-items: center;

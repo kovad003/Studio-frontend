@@ -23,6 +23,8 @@ const theme = {
 		sidebarSelectedBg: "#30425b",
 		projectItemBg: "#F6F6F6",
 		projectItemHover: "#E2EAF5",
+		lightCardColor: "#8A8A8A",
+		lightInfoIcon: "#8E8E8E",
 	},
 	dark: {},
 };
