@@ -34,6 +34,13 @@ const StyledInputWrapper = styled.div`
 		font-size: 14px;
 		color: ${(props) => props.theme.primaryColor};
 	}
+
+	input.full + .placeholder {
+		top: -15px;
+		left: 0;
+		font-size: 14px;
+		color: ${(props) => props.theme.primaryColor};
+	}
 `;
 
 export default InputWrapper;

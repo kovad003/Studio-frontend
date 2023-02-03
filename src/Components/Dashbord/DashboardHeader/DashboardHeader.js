@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Button from "../Button/Button";
+import Button from "../../Button/Button";
 import { AiOutlineSearch } from "react-icons/ai";
 
 const DashboardHeader = ({ keyword, setKeyword }) => {

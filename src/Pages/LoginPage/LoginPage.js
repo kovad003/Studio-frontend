@@ -10,19 +10,26 @@ const initialState = {
 	email: {
 		value: "",
 		error: false,
-		errMessage: "",
 	},
 	password: {
 		value: "",
 		error: false,
-		errMessage: "",
 	},
 };
 
 const LoginPage = () => {
 	const [credentials, setCredentials] = useState(initialState);
 
-	const handleOnChange = () => {};
+	const handleOnChange = (e) => {
+		const name = e.target.name;
+		const value = e.target.value;
+
+		const newState = {
+			...credentials,
+			[name]: { value, error: false },
+		};
+		setCredentials(newState);
+	};
 
 	return (
 		<StyledLoginPage>
@@ -30,7 +37,11 @@ const LoginPage = () => {
 			<img className="login-bg2" src={loginBg2} alt="login-background" />
 			<Card width="1280px" height="700px" logo={true}>
 				<div className="login-wrapper">
-					<Login handleOnChange={handleOnChange} credentials={credentials} />
+					<Login
+						handleOnChange={handleOnChange}
+						credentials={credentials}
+						setCredentials={setCredentials}
+					/>
 					<LoginHero />
 				</div>
 			</Card>

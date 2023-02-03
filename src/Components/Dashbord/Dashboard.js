@@ -1,8 +1,8 @@
 import React from "react";
 import ProjectListContainer from "../ProjectList/ProjectListContainer";
 import styled from "styled-components";
-import DashboardInfo from "../DashboardInfo/DashboardInfo";
-import DashboardRight from "../DashboardRight/DashboardRight";
+import DashboardInfo from "./DashboardInfo/DashboardInfo";
+import DashboardRight from "./DashboardRight/DashboardRight";
 
 const Dashboard = () => {
 	return (
@@ -29,6 +29,7 @@ const StyledDashboardComponent = styled.div`
 		h1 {
 			font-size: 32px;
 			margin-bottom: 20px;
+			margin-top: 6px;
 		}
 
 		h3 {
