@@ -19,7 +19,7 @@ const BreadCrumbs = () => {
 			{crumbs.map((crumb, i) => {
 				return (
 					<span>
-						{crumb} {crumbs.length - 1 !== i ? "/ " : ""}
+						{crumb} {crumbs.length - 1 !== i ? "❯ " : ""}
 					</span>
 				);
 			})}
@@ -29,13 +29,18 @@ const BreadCrumbs = () => {
 
 const StyledBreadrumbs = styled.div`
 	font-size: 14px;
-	color: ${(props) => props.theme.primaryColor};
+	color: ${(props) => props.theme.lightInfoIcon};
 	transition: all 0.3s ease;
 	position: absolute;
 	top: 6px;
+	text-transform: capitalize;
 
 	a {
-		color: ${(props) => props.theme.primaryColor};
+		color: ${(props) => props.theme.lightInfoIcon};
+
+		:hover {
+			color: ${(props) => props.theme.primaryColor};
+		}
 	}
 `;
 

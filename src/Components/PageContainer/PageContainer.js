@@ -14,6 +14,7 @@ const StyledPageContainer = styled.section`
 	h1.page-title {
 		font-size: 32px;
 		margin-bottom: 20px;
+		margin-top: 6px;
 	}
 `;
 
