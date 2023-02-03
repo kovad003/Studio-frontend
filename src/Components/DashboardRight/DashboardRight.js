@@ -6,7 +6,7 @@ const DashboardRight = () => {
 };
 
 const StyledDashboardRight = styled.div`
-	width: 200px;
+	width: 312px;
 	background-color: #fff;
 	border: 1px solid ${(props) => props.theme.borderColor};
 	border-radius: 10px;

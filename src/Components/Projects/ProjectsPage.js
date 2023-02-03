@@ -1,17 +1,16 @@
 import React from "react";
 import PageContainer from "../PageContainer/PageContainer";
-import { useLocation } from "react-router";
+import ProjectListContainer from "../ProjectList/ProjectListContainer";
 import BreadCrumbs from "../BreadCrumbs/BreadCrumbs";
 
-const Updates = () => {
-	const location = useLocation();
-	console.log(location);
+const ProjectsPage = () => {
 	return (
 		<PageContainer>
+			<h1 className="page-title">Projects</h1>
 			<BreadCrumbs />
-			<h1 className="page-title">Updates page</h1>
+			<ProjectListContainer />
 		</PageContainer>
 	);
 };
 
-export default Updates;
+export default ProjectsPage;
