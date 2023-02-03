@@ -12,9 +12,21 @@ const DashboardInfoCard = ({ icon, title, icon2, quantity, background }) => {
   const tooltipOriginRef = useRef();
   const tooltipRef = useRef();
 
+  // Customising the popper's placement in reference to the origin reference point.
   const { styles, attributes } = usePopper(
     tooltipOriginRef.current,
-    tooltipRef.current
+    tooltipRef.current,
+    {
+      placement: "top",
+      modifiers: [
+        {
+          name: "offset",
+          options: {
+            offset: [35, 1],
+          },
+        },
+      ],
+    }
   );
 
   const onClickShowTooltip = () => {
@@ -61,6 +73,12 @@ const StyledDashboardCard = styled.div`
   background-color: #fff;
   flex: 1;
   font-size: 16px;
+
+  // disables text selection (the annoying blue highlighting of text)
+  -moz-user-select: none; // Firefox
+  -webkit-user-select: none; // Safari
+  -ms-user-select: none; // IE
+  user-select: none; // Standard syntax
 
   // top section styling
   .DashboardCard__top {
