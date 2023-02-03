@@ -30,7 +30,7 @@ const DashboardInfoCard = ({
         {
           name: "offset",
           options: {
-            offset: [35, 1],
+            offset: [75, -3],
           },
         },
       ],
@@ -148,15 +148,11 @@ const StyledDashboardCard = styled.div`
     font-weight: bold;
     font-size: 13px;
     border-radius: 4px;
-    /* display: inline-block; */
     color: #ffffff;
     background: ${(props) => props.theme.lightInfoIcon};
-    /* padding: 2px 10px 3px; */
-
     display: flex;
-    padding: 5px;
-    /* width: 100px; */
-    max-width: 140px;
+    padding: 3px;
+    max-width: 125px;
   }
 
   .DashboardCard__guidance-icon {
@@ -166,10 +162,7 @@ const StyledDashboardCard = styled.div`
   }
 
   .DashboardCard__guidance-text {
-    /*   position: relative;
-    right: 5px;
-    top: 10px; */
-    padding-left: 10px;
+    padding-left: 5px;
   }
 `;
 
