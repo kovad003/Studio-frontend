@@ -53,7 +53,12 @@ const DashboardInfoCard = ({
           className="DashboardCard__guidance"
           /* style={{ backgroundColor: background }} */
         >
-          <span className="DashboardCard__guidance-icon">{guidanceIcon}</span>
+          <span
+            className="DashboardCard__guidance-icon"
+            style={{ color: background }}
+          >
+            {guidanceIcon}
+          </span>
           <span className="DashboardCard__guidance-text">{guidance}</span>
         </div>
       </div>
@@ -147,12 +152,14 @@ const StyledDashboardCard = styled.div`
     text-transform: uppercase;
     font-weight: bold;
     font-size: 13px;
-    border-radius: 4px;
+
     color: #ffffff;
     background: ${(props) => props.theme.lightInfoIcon};
     display: flex;
     padding: 3px;
     max-width: 125px;
+    /* border-radius: 4px; */
+    border-radius: 10px;
   }
 
   .DashboardCard__guidance-icon {
