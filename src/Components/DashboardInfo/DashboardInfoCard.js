@@ -3,7 +3,15 @@ import { usePopper } from "react-popper";
 import React, { useState, useRef } from "react";
 import classNames from "classnames";
 
-const DashboardInfoCard = ({ icon, title, icon2, quantity, background }) => {
+const DashboardInfoCard = ({
+  icon,
+  title,
+  icon2,
+  quantity,
+  background,
+  guidance,
+  guidanceIcon,
+}) => {
   const [isVisible, setIsVisible] = useState(false);
   /* useRef returns a mutable ref object whose .current 
    property is initialized to the passed argument (initialValue). 
@@ -41,7 +49,13 @@ const DashboardInfoCard = ({ icon, title, icon2, quantity, background }) => {
         style={styles.popper}
         {...attributes.popper}
       >
-        <div>Info</div>
+        <div
+          className="DashboardCard__guidance"
+          /* style={{ backgroundColor: background }} */
+        >
+          <span className="DashboardCard__guidance-icon">{guidanceIcon}</span>
+          {guidance}
+        </div>
       </div>
 
       <div className="DashboardCard__top">
@@ -118,12 +132,35 @@ const StyledDashboardCard = styled.div`
 
   // Tooltip styles
   .tooltip {
-    background-color: indianred;
+    /*  background-color: indianred; */
   }
 
   .tooltip-hidden {
     visibility: hidden;
     pointer-events: none;
+  }
+
+  // styling the dynamically generated divs from the data.js
+  .DashboardCard__guidance {
+    font-family: -apple-system, Helvetica Neue, Segoe UI, Roboto, Oxygen, Ubuntu,
+      Cantarell, Open Sans, sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+    border-radius: 4px;
+    display: inline-block;
+    color: #ffffff;
+    background: ${(props) => props.theme.lightInfoIcon};
+    padding: 0px 10px 0px;
+  }
+
+  .DashboardCard__guidance-icon {
+    /*  margin-top: 10px; */
+    /* background-color: red; */
+    position: relative;
+    right: 5px;
+    top: 1px;
+    /* padding-top: 10px; */
   }
 `;
 

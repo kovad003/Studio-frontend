@@ -14,6 +14,8 @@ const data = [
     icon2: <AiFillInfoCircle size={24} />,
     quantity: 18,
     background: "#E5F0FF",
+    guidance: "The total number of customers registered into the app",
+    guidanceIcon: <AiFillInfoCircle size={18} />,
   },
   {
     id: "active",
@@ -22,6 +24,8 @@ const data = [
     icon2: <AiFillInfoCircle size={24} />,
     quantity: 6,
     background: "#FFDDB6",
+    guidance: "The total number of projects which are currently in-progress",
+    guidanceIcon: <AiFillInfoCircle size={18} />,
   },
   {
     id: "completed",
@@ -30,6 +34,8 @@ const data = [
     icon2: <AiFillInfoCircle size={24} />,
     quantity: 12,
     background: "#A2DAB8",
+    guidance: "The total number of projects which have been completed",
+    guidanceIcon: <AiFillInfoCircle size={18} />,
   },
 ];
 
