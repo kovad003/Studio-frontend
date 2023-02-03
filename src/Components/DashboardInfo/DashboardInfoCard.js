@@ -1,36 +1,35 @@
-/* import React from "react"; */
 import styled from "styled-components";
 import { usePopper } from "react-popper";
 import React, { useState, useRef } from "react";
 import classNames from "classnames";
 
 const DashboardInfoCard = ({ icon, title, icon2, quantity, background }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const boxRef = useRef();
+  const [isVisible, setIsVisible] = useState(false);
+  /* useRef returns a mutable ref object whose .current 
+   property is initialized to the passed argument (initialValue). 
+   The returned object will persist for the full lifetime of the component. */
+
+  const tooltipOriginRef = useRef();
   const tooltipRef = useRef();
 
-  const { styles, attributes } = usePopper(boxRef.current, tooltipRef.current);
+  const { styles, attributes } = usePopper(
+    tooltipOriginRef.current,
+    tooltipRef.current
+  );
 
-  const onClickHeader = () => {
-    setIsOpen(!isOpen);
+  const onClickShowTooltip = () => {
+    setIsVisible(!isVisible);
   };
 
   return (
     <StyledDashboardCard>
-      <div ref={boxRef} className="box">
-        <p onClick={onClickHeader} className="title">
-          Click me!
-        </p>
-        <div>Dummy text</div>
-      </div>
-
       <div
-        className={classNames("tooltip", { "tooltip-hidden": !isOpen })}
+        className={classNames("tooltip", { "tooltip-hidden": !isVisible })}
         ref={tooltipRef}
         style={styles.popper}
         {...attributes.popper}
       >
-        <div>an example tooltip</div>
+        <div>Info</div>
       </div>
 
       <div className="DashboardCard__top">
@@ -41,7 +40,13 @@ const DashboardInfoCard = ({ icon, title, icon2, quantity, background }) => {
           {icon}
         </span>
         <span className="DashboardCard__title">{title}</span>
-        <span className="DashboardCard__icon2">{icon2}</span>
+        <span
+          ref={tooltipOriginRef}
+          onClick={onClickShowTooltip}
+          className="DashboardCard__icon2"
+        >
+          {icon2}
+        </span>
       </div>
       <div className="DashboardCard__bottom">
         <span className="DashboardCard__quantity">{quantity}</span>
@@ -65,13 +70,10 @@ const StyledDashboardCard = styled.div`
     padding-top: 10px;
 
     .DashboardCard__icon {
-      /* padding: 5px 3px 3px 3px; */
-      /* border-radius: 50%; */
       width: 26px;
       height: 26px;
       border-radius: 13px;
       padding: 4px 2px 2px 4.5px;
-      /* margin-top: 1px; */
     }
 
     .DashboardCard__title {
@@ -82,6 +84,7 @@ const StyledDashboardCard = styled.div`
     .DashboardCard__icon2 {
       padding-top: 5px;
       color: ${(props) => props.theme.lightInfoIcon};
+      cursor: pointer;
     }
   }
 
@@ -96,10 +99,6 @@ const StyledDashboardCard = styled.div`
   }
 
   // Tooltip styles
-  .box .description-active {
-    display: block;
-  }
-
   .tooltip {
     background-color: indianred;
   }
