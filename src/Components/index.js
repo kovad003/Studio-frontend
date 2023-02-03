@@ -8,6 +8,9 @@ import DashboardHeader from "./DashboardHeader/DashboardHeader";
 import Updates from "./Updates/Updates";
 import Users from "./Users/Users";
 import ProjectInfo from "./ProjectInfo/ProjectInfo";
+import PageContainer from "./PageContainer/PageContainer";
+import Projects from "./Projects/Projects";
+import ProjectsPage from "./Projects/ProjectsPage";
 
 export {
 	Button,
@@ -20,4 +23,7 @@ export {
 	Updates,
 	Users,
 	ProjectInfo,
+	PageContainer,
+	Projects,
+	ProjectsPage,
 };

@@ -20,7 +20,7 @@ const StyledDashboardInfo = styled.section`
 	justify-content: space-between;
 	gap: 15px;
 	height: 91px;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 `;
 
 export default DashboardInfo;

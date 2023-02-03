@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useAppContext } from "../../context/AppContext";
 
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const SidebarListItem = ({ id, name, icon, selected, setSelected }) => {
 	const handleOnClick = () => {
@@ -13,14 +13,16 @@ const SidebarListItem = ({ id, name, icon, selected, setSelected }) => {
 			? "/dashboard"
 			: name === "Updates"
 			? "/dashboard/updates"
+			: name === "Projects"
+			? "/dashboard/projects"
 			: "/dashboard/users"
 	}`;
 	return (
 		<StyledSidebarListItem
 			id={id}
-			onClick={handleOnClick}
-			className={selected === id ? "selected" : ""}
 			to={to}
+			className={selected === "Home" ? "selected" : ""}
+			end={id !== "projects"}
 		>
 			<span>{icon}</span>
 			<span>{name}</span>
@@ -28,7 +30,7 @@ const SidebarListItem = ({ id, name, icon, selected, setSelected }) => {
 	);
 };
 
-const StyledSidebarListItem = styled(Link)`
+const StyledSidebarListItem = styled(NavLink)`
 	width: 127px;
 	height: 40px;
 	display: flex;
@@ -41,12 +43,17 @@ const StyledSidebarListItem = styled(Link)`
 	transition: all 0.3s ease;
 	background-color: transparent;
 
-	&.selected {
+	&.selected.active {
 		background-color: ${(props) => props.theme.darkBgColor};
 		color: ${(props) => props.theme.white};
 	}
 
-	:not(.selected):hover {
+	&:not(.selected).active {
+		background-color: ${(props) => props.theme.darkBgColor};
+		color: ${(props) => props.theme.white};
+	}
+
+	:not(.active):hover {
 		background-color: ${(props) => props.theme.sidebarBtnHoverBg};
 		color: ${(props) => props.theme.primaryColor};
 	}

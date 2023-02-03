@@ -8,7 +8,9 @@ const Dashboard = () => {
 	return (
 		<StyledDashboardComponent>
 			<div className="dashboard-content">
+				<h1>Dashboard</h1>
 				<DashboardInfo />
+				<h3>Recent Projects</h3>
 				<ProjectListContainer />
 			</div>
 			<DashboardRight />
@@ -23,6 +25,15 @@ const StyledDashboardComponent = styled.div`
 
 	.dashboard-content {
 		flex: 1;
+
+		h1 {
+			font-size: 32px;
+			margin-bottom: 20px;
+		}
+
+		h3 {
+			margin-bottom: 10px;
+		}
 	}
 `;
 

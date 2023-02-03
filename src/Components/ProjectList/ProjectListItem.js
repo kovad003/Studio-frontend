@@ -14,7 +14,7 @@ const ProjectListItem = ({
 	const names = clientName.split(" ");
 	const letter = names[0][0] + names[1][0];
 	return (
-		<StyledProjectListItem to={`/dashboard/project/${projectId}`}>
+		<StyledProjectListItem to={`/dashboard/projects/${projectId}`}>
 			<span
 				className="indicator"
 				style={{ backgroundColor: status === "done" ? "#A2DAB8" : "#6FB8FC" }}
