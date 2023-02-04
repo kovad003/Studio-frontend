@@ -1,9 +1,18 @@
 import React from "react";
 import { Form, InputWrapper, Button } from "../../Components";
 import { toast } from "react-toastify";
+import axios from "../../api/axios";
+import useAuth from "../../hooks/useAuth";
+import { initialState } from "./LoginPage";
+import { useLocation, useNavigate } from "react-router";
 
 const Login = ({ handleOnChange, credentials, setCredentials }) => {
-	const handleFormSubmit = (e) => {
+	const { setAuth } = useAuth();
+	const location = useLocation();
+	const navigate = useNavigate();
+	const navigatTo = location.state?.from?.pathName || "/";
+
+	const handleFormSubmit = async (e) => {
 		e.preventDefault();
 		const { email, password } = credentials;
 		if (!email.value || !password.value) {
@@ -15,6 +24,16 @@ const Login = ({ handleOnChange, credentials, setCredentials }) => {
 
 			setCredentials({ email: newEmail, password: newPass });
 			toast.error("Please provide all the credentials");
+		} else {
+			const apiObj = { email, password };
+			const response = await axios.post(apiObj);
+			const accessToken = response?.data?.accessToken;
+			const roles = response?.data?.roles;
+			const userName = response?.data?.name;
+			const lastName = response?.data?.lastName;
+			setAuth({ userName, lastName, roles, accessToken });
+			setCredentials(initialState);
+			navigate(navigatTo, { replace: true });
 		}
 	};
 	return (
