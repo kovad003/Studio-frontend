@@ -6,7 +6,7 @@ import { Card } from "../../Components";
 import loginBg1 from "../../assets/loginBg1.svg";
 import loginBg2 from "../../assets/loginBg2.svg";
 
-const initialState = {
+export const initialState = {
 	email: {
 		value: "",
 		error: false,
