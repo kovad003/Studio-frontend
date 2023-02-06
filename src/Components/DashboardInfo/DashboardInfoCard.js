@@ -53,12 +53,7 @@ const DashboardInfoCard = ({
           className="DashboardCard__guidance"
           /* style={{ backgroundColor: background }} */
         >
-          <span
-            className="DashboardCard__guidance-icon"
-            style={{ color: background }}
-          >
-            {guidanceIcon}
-          </span>
+          <span style={{ color: background }}>{guidanceIcon}</span>
           <span className="DashboardCard__guidance-text">{guidance}</span>
         </div>
       </div>
@@ -148,7 +143,7 @@ const StyledDashboardCard = styled.div`
 
   // Tooltip styles
   .tooltip {
-    opacity: 0.9;
+    opacity: 0.95;
     color: ${(props) => props.theme.lightCardColor};
   }
 
@@ -173,9 +168,6 @@ const StyledDashboardCard = styled.div`
     /* border-radius: 4px; */
     border-radius: 10px;
   }
-
-  /* .DashboardCard__guidance-icon {    
-  } */
 
   .DashboardCard__guidance-text {
     padding-left: 5px;
