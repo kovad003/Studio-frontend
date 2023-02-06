@@ -13,10 +13,10 @@ const DashboardInfoCard = ({
   guidanceIcon,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
+
   /* useRef returns a mutable ref object whose .current 
    property is initialized to the passed argument (initialValue). 
    The returned object will persist for the full lifetime of the component. */
-
   const tooltipOriginRef = useRef();
   const tooltipRef = useRef();
 
@@ -30,16 +30,12 @@ const DashboardInfoCard = ({
         {
           name: "offset",
           options: {
-            offset: [75, -3],
+            offset: [75, -3], // Horizontal and vertical alignment
           },
         },
       ],
     }
   );
-
-  const onClickShowTooltip = () => {
-    setIsVisible(!isVisible);
-  };
 
   return (
     <StyledDashboardCard>
@@ -73,8 +69,9 @@ const DashboardInfoCard = ({
         <span className="DashboardCard__title">{title}</span>
         <span
           ref={tooltipOriginRef}
-          onClick={onClickShowTooltip}
           className="DashboardCard__icon2"
+          onMouseEnter={() => setIsVisible(true)}
+          onMouseLeave={() => setIsVisible(false)}
         >
           {icon2}
         </span>
