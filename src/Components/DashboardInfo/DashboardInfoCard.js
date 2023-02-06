@@ -12,7 +12,11 @@ const DashboardInfoCard = ({
   guidance,
   guidanceIcon,
 }) => {
+  // a state for displaying the guidance message, on hover
   const [isVisible, setIsVisible] = useState(false);
+
+  // a state for changing the guidance icon style, on hover
+  const [isHovered, setIsHovered] = useState(false);
 
   /* useRef returns a mutable ref object whose .current 
    property is initialized to the passed argument (initialValue). 
@@ -30,7 +34,7 @@ const DashboardInfoCard = ({
         {
           name: "offset",
           options: {
-            offset: [75, -3], // Horizontal and vertical alignment
+            offset: [75, 0], // Horizontal and vertical alignment
           },
         },
       ],
@@ -68,10 +72,20 @@ const DashboardInfoCard = ({
         </span>
         <span className="DashboardCard__title">{title}</span>
         <span
+          style={{
+            color: isHovered ? background : "",
+            transition: "all 0.3s ease",
+          }}
           ref={tooltipOriginRef}
           className="DashboardCard__icon2"
-          onMouseEnter={() => setIsVisible(true)}
-          onMouseLeave={() => setIsVisible(false)}
+          onMouseEnter={() => {
+            setIsVisible(true);
+            setIsHovered(true);
+          }}
+          onMouseLeave={() => {
+            setIsVisible(false);
+            setIsHovered(false);
+          }}
         >
           {icon2}
         </span>
@@ -134,7 +148,8 @@ const StyledDashboardCard = styled.div`
 
   // Tooltip styles
   .tooltip {
-    /*  background-color: indianred; */
+    opacity: 0.9;
+    color: ${(props) => props.theme.lightCardColor};
   }
 
   .tooltip-hidden {
@@ -159,11 +174,8 @@ const StyledDashboardCard = styled.div`
     border-radius: 10px;
   }
 
-  .DashboardCard__guidance-icon {
-    /* position: relative;
-    right: 5px;
-    top: 1px; */
-  }
+  /* .DashboardCard__guidance-icon {    
+  } */
 
   .DashboardCard__guidance-text {
     padding-left: 5px;
