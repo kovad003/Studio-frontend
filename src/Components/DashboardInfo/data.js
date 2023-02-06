@@ -9,7 +9,7 @@ import {
 const data = [
   {
     id: "customers",
-    icon: <HiShoppingBag size={18} />,
+    icon: <HiShoppingBag size={18} style={{ paddingBottom: "2px" }} />,
     title: "Customers",
     icon2: <AiFillInfoCircle size={24} />,
     quantity: 18,
@@ -19,7 +19,7 @@ const data = [
   },
   {
     id: "active",
-    icon: <AiOutlineDoubleRight size={18} />,
+    icon: <AiOutlineDoubleRight size={18} style={{ paddingLeft: "1px" }} />,
     title: "Active",
     icon2: <AiFillInfoCircle size={24} />,
     quantity: 6,
@@ -29,7 +29,7 @@ const data = [
   },
   {
     id: "completed",
-    icon: <AiTwotoneTrophy size={18} />,
+    icon: <AiTwotoneTrophy size={18} style={{ paddingRight: "1px" }} />,
     title: "Completed",
     icon2: <AiFillInfoCircle size={24} />,
     quantity: 12,
