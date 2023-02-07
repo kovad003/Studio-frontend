@@ -4,7 +4,7 @@ import SidebarListItem from "./SidebarListItem.js";
 import styled from "styled-components";
 
 const SidebarList = () => {
-	const [selected, setSelected] = useState("home");
+	const [selected, setSelected] = useState("Home");
 	return (
 		<StyledSidebarList>
 			<ul>

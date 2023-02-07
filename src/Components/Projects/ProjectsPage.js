@@ -1,16 +1,16 @@
 import React from "react";
 import PageContainer from "../PageContainer/PageContainer";
+import ProjectListContainer from "../ProjectList/ProjectListContainer";
 import BreadCrumbs from "../BreadCrumbs/BreadCrumbs";
-import { Outlet } from "react-router";
 
-const Users = () => {
+const ProjectsPage = () => {
 	return (
 		<PageContainer>
+			<h1 className="page-title">Projects</h1>
 			<BreadCrumbs />
-			<h1 className="page-title">Users page</h1>
-			<Outlet />
+			<ProjectListContainer />
 		</PageContainer>
 	);
 };
 
-export default Users;
+export default ProjectsPage;

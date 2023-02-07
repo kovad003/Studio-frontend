@@ -1,8 +1,8 @@
-import React, { useReducer, useContext } from "react";
+import React, { useReducer } from "react";
 import reducer from "../reducers/AppReducer";
 import { CHANGE_DASHBOARD_PAGE } from "../reducers/AppReducer";
 
-const AppContext = React.createContext();
+export const AppContext = React.createContext();
 
 const initialState = {
 	currentPage: "Home",
@@ -20,8 +20,4 @@ export const AppContextProvider = ({ children }) => {
 			{children}
 		</AppContext.Provider>
 	);
-};
-
-export const useAppContext = () => {
-	return useContext(AppContext);
 };
