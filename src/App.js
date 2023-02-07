@@ -20,6 +20,8 @@ import DashboardPage from "./Pages/DashboardPage";
 import NotFound from "./Pages/NotFound";
 import RequireAuth from "./Components/RequireAuth";
 import NotAllowed from "./Pages/NotAllowed";
+import CreateUserPage from "./Components/Users/CreateUserPage";
+import UsersPage from "./Components/Users/UsersPage";
 
 function App() {
 	const [currentTheme, setCurrentTheme] = useState(false);
@@ -44,7 +46,10 @@ function App() {
 							<Route path="/dashboard" element={<DashboardPage />}>
 								<Route index element={<Dashboard />} />
 								<Route path="updates" element={<Updates />} />
-								<Route path="users" element={<Users />} />
+								<Route path="users" element={<Users />}>
+									<Route index element={<UsersPage />} />
+									<Route path="create" element={<CreateUserPage />} />
+								</Route>
 								<Route path="projects" element={<Projects />}>
 									<Route index element={<ProjectsPage />} />
 									<Route path=":id" element={<ProjectInfo />} />

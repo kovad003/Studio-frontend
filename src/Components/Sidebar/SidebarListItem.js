@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { useAppContext } from "../../context/AppContext";
-
 import { NavLink } from "react-router-dom";
 
 const SidebarListItem = ({ id, name, icon, selected, setSelected }) => {
@@ -22,7 +20,8 @@ const SidebarListItem = ({ id, name, icon, selected, setSelected }) => {
 			id={id}
 			to={to}
 			className={selected === "Home" ? "selected" : ""}
-			end={id !== "projects"}
+			end
+			onClick={handleOnClick}
 		>
 			<span>{icon}</span>
 			<span>{name}</span>
