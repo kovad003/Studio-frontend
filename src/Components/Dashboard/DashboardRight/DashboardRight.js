@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import Calendar from "../../Calendar";
+import CommentArea from './CommentArea';
 
 const DashboardRight = () => {
 	return (
 		<StyledDashboardRight>
-			<div className="comments"></div>
+			<CommentArea />
 			<Calendar />
 		</StyledDashboardRight>
 	);
