@@ -29,12 +29,12 @@ const DashboardInfoCard = ({
     tooltipOriginRef.current,
     tooltipRef.current,
     {
-      placement: "top",
+      placement: "bottom",
       modifiers: [
         {
           name: "offset",
           options: {
-            offset: [75, 0], // Horizontal and vertical alignment
+            offset: [55, 5], // Horizontal and vertical alignment
           },
         },
       ],
