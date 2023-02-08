@@ -7,7 +7,7 @@ const CommentCard = (props) => {
     <StyledCommentCard>
     <div className="comment-card-container">
         <div key={props.comment.username}>
-          <h3>{props.comment.name} (@{props.comment.username})</h3>
+          <h5>{props.comment.name} (@{props.comment.username})</h5>
           <img src={props.comment.userImageUrl} alt={props.comment.name} />
           <p>{props.comment.commentText}</p>
           <p>{props.comment.createdAt}</p>
@@ -21,13 +21,11 @@ const CommentCard = (props) => {
 const StyledCommentCard = styled.section`
 	background-color: ${(props) => props.theme.white};
 	border-radius: 5px;
-	border-bottom: 1px solid ${(props) => props.theme.borderColor};
+	border-top: 1px solid ${(props) => props.theme.borderColor};
 	padding: 10px;
 	width: 100%;
-	height: fit-content;
+	min-height: 100px;
   margin-botton: 5px;
-  height: 120px;
-
 `;
 
 export default CommentCard;
