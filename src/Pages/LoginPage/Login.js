@@ -1,16 +1,14 @@
-import React from "react";
+import { useEffect } from "react";
 import { Form, InputWrapper, Button } from "../../Components";
 import { toast } from "react-toastify";
 import axios from "../../api/axios";
 import useAuth from "../../hooks/useAuth";
 import { initialState } from "./LoginPage";
-import { useLocation, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 const Login = ({ handleOnChange, credentials, setCredentials }) => {
-	const { setAuth } = useAuth();
-	const location = useLocation();
+	const { setAuth, auth, saveToLocalStorage } = useAuth();
 	const navigate = useNavigate();
-	const navigatTo = location.state?.from?.pathName || "/";
 
 	const handleFormSubmit = async (e) => {
 		e.preventDefault();
@@ -25,17 +23,31 @@ const Login = ({ handleOnChange, credentials, setCredentials }) => {
 			setCredentials({ email: newEmail, password: newPass });
 			toast.error("Please provide all the credentials");
 		} else {
-			const apiObj = { email, password };
-			const response = await axios.post(apiObj);
-			const accessToken = response?.data?.accessToken;
-			const roles = response?.data?.roles;
-			const userName = response?.data?.name;
+			const apiObj = { email: email.value, password: password.value };
+			console.log(apiObj);
+			const response = await axios.post("/api/useraccount/login", apiObj);
+			console.log(response);
+			const accessToken = response?.data?.token;
+			const roles = [response?.data?.role];
+			const userName = response?.data?.firstName;
 			const lastName = response?.data?.lastName;
-			setAuth({ userName, lastName, roles, accessToken });
+			const user = { userName, lastName, roles };
+			setAuth({ user, accessToken });
 			setCredentials(initialState);
-			navigate(navigatTo, { replace: true });
+
+			toast.success(`Welcome ${user.roles[0]}`);
 		}
 	};
+
+	useEffect(() => {
+		if (auth.user) {
+			saveToLocalStorage();
+			if (auth.user.roles.includes("Admin")) {
+				navigate("/dashboard");
+			}
+		}
+	}, [auth, navigate, saveToLocalStorage]);
+
 	return (
 		<div>
 			<Form width="545px" height="100%">
