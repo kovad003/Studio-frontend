@@ -11,9 +11,9 @@ const DashboardHeader = ({ keyword, setKeyword }) => {
 	stack instead of adding a new one. */
   const navigate = useNavigate();
   const location = useLocation();
-  /*  const navigateTo = "/dashboard/users/create"; */
-  const navigateTo =
-    location.state?.from?.pathName || "/dashboard/users/create";
+  const navigateTo = "/dashboard/users/create";
+  /* const navigateTo =
+    location.state?.from?.pathName || "/dashboard/users/create"; */
 
   const handleBtnSubmit = async (e) => {
     e.preventDefault();
