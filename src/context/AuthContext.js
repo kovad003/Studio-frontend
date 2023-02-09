@@ -4,6 +4,7 @@ export const AuthContext = React.createContext();
 
 export const AuthProvider = ({ children }) => {
 	const [auth, setAuth] = useState({});
+	const [isLoading, setIsLoading] = useState(false);
 
 	const saveToLocalStorage = () => {
 		localStorage.setItem("user", JSON.stringify(auth));
@@ -24,6 +25,8 @@ export const AuthProvider = ({ children }) => {
 				setAuth,
 				saveToLocalStorage,
 				readFromLocalStorage,
+				isLoading,
+				setIsLoading,
 			}}
 		>
 			{children}
