@@ -41,9 +41,7 @@ const DashboardHeader = ({ keyword, setKeyword }) => {
 
         <div className="DashboardHeader__right">
           <div className="DashboardHeader__btn">
-            <Button className="DashboardHeader__btn" action={handleBtnSubmit}>
-              Add User
-            </Button>
+            <Button action={handleBtnSubmit}>Add User</Button>
           </div>
         </div>
       </div>
@@ -53,8 +51,6 @@ const DashboardHeader = ({ keyword, setKeyword }) => {
 
 const StyledDashboardHeader = styled.section`
   background-color: ${(props) => props.theme.white};
-  /* border-bottom: 1px solid ${(props) => props.theme.sidebarBtnColor}; */
-
   border-bottom: 0.1px solid ${(props) => props.theme.borderColor};
   font-size: 18px;
   height: 60px;

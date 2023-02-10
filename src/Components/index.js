@@ -11,19 +11,21 @@ import ProjectInfo from "./ProjectInfo/ProjectInfo";
 import PageContainer from "./PageContainer/PageContainer";
 import Projects from "./Projects/Projects";
 import ProjectsPage from "./Projects/ProjectsPage";
+import AboutLogo from "./About/AboutLogo";
 
 export {
-	Button,
-	Card,
-	InputWrapper,
-	Form,
-	Sidebar,
-	Dashboard,
-	DashboardHeader,
-	Updates,
-	Users,
-	ProjectInfo,
-	PageContainer,
-	Projects,
-	ProjectsPage,
+  Button,
+  Card,
+  InputWrapper,
+  Form,
+  Sidebar,
+  Dashboard,
+  DashboardHeader,
+  Updates,
+  Users,
+  ProjectInfo,
+  PageContainer,
+  Projects,
+  ProjectsPage,
+  AboutLogo,
 };
