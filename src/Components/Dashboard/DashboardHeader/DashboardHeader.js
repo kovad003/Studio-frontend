@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Button from "../../Button/Button";
 import { AiOutlineSearch } from "react-icons/ai";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const DashboardHeader = ({ keyword, setKeyword }) => {
   /* The useNavigate hook returns a function that lets you navigate 
@@ -10,10 +10,7 @@ const DashboardHeader = ({ keyword, setKeyword }) => {
 	If using replace: true, the navigation will replace the current entry in the history 
 	stack instead of adding a new one. */
   const navigate = useNavigate();
-  const location = useLocation();
   const navigateTo = "/dashboard/users/create";
-  /* const navigateTo =
-    location.state?.from?.pathName || "/dashboard/users/create"; */
 
   const handleBtnSubmit = async (e) => {
     e.preventDefault();

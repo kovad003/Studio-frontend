@@ -6,10 +6,9 @@ const AboutPage = () => {
   return (
     <StyledAboutPage>
       <div className="AboutPage__header">
-        <div className="AboutPage__header-left"></div>
-
-        <AboutLogo />
-
+        <div className="AboutPage__header-left">
+          <AboutLogo />
+        </div>
         <div className="AboutPage__header-right">
           <div className="AboutPage__btn">
             <Button>Login</Button>
@@ -17,10 +16,10 @@ const AboutPage = () => {
         </div>
       </div>
 
-      <h1>About page</h1>
-
       <div className="AboutPage__content">
-        <div className="AboutPage__content-left"></div>
+        <div className="AboutPage__content-left">
+          <h1>About page</h1>
+        </div>
         <div className="AboutPage__content-right"></div>
       </div>
 
@@ -42,6 +41,8 @@ const StyledAboutPage = styled.section`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: ${(props) => props.theme.white};
+    height: 60px;
 
     .AboutPage__left {
       flex: 1;
