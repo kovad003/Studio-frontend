@@ -33,9 +33,9 @@ const LoginPage = () => {
 
 	return (
 		<StyledLoginPage>
-			<img className="login-bg1" src={loginBg1} alt="login-background" />
-			<img className="login-bg2" src={loginBg2} alt="login-background" />
-			<Card width="1280px" height="700px" logo={true}>
+			{/* <img className="login-bg1" src={loginBg1} alt="login-background" />
+			<img className="login-bg2" src={loginBg2} alt="login-background" /> */}
+			<Card width="1280px" height="700px">
 				<div className="login-wrapper">
 					<Login
 						handleOnChange={handleOnChange}
@@ -53,7 +53,7 @@ const LoginPage = () => {
 };
 
 const StyledLoginPage = styled.section`
-	height: 100vh;
+	height: calc(100vh - 60px);
 	width: 100vw;
 	background-color: ${(props) => props.theme.bgColor};
 	display: flex;

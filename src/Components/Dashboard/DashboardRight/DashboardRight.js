@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import Calendar from "../../Calendar";
-import CommentArea from './CommentArea';
+import CommentArea from "./CommentArea";
 
 const DashboardRight = () => {
 	return (
 		<StyledDashboardRight>
 			<CommentArea />
-			<Calendar />
+			{/* <Calendar /> */}
 		</StyledDashboardRight>
 	);
 };

@@ -55,7 +55,7 @@ const StyledShortLinkButton = styled(Link)`
 	background-color: ${(props) => props.theme.primaryColor};
 	border: 1px solid ${(props) => props.theme.primaryColor};
 	color: ${(props) => props.theme.white};
-	max-width: 200px;
+	max-width: 150px;
 
 	:hover {
 		background-color: ${(props) => props.theme.btnHover};
