@@ -6,17 +6,13 @@ import styled from "styled-components";
 const AboutTitle = () => {
   return (
     <StyledAboutTitle>
-      <>
+      <div>
         <h1>About</h1>
-      </>
+      </div>
     </StyledAboutTitle>
   );
 };
 
-const StyledAboutTitle = styled.div`
-  /*  display: block;
-  width: 150px;
-  margin: 10px 20px; */
-`;
+const StyledAboutTitle = styled.div``;
 
 export default AboutTitle;

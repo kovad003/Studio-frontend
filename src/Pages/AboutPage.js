@@ -20,7 +20,6 @@ const AboutPage = () => {
 
       <div className="AboutPage__content-outer">
         <div className="AboutPage__content-title">
-          {/* <AboutTitle /> */}
           <AboutTitle />
         </div>
         <div className="AboutPage__content-inner">
@@ -54,34 +53,6 @@ const AboutPage = () => {
           </div>
           <div className="AboutPage__content-right">
             <img src={About} alt="About" />
-
-            {/*   <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at
-              felis mi. In rhoncus elementum ipsum sed varius. Nulla nec cursus
-              metus. Nam viverra eu neque at tempor. Nulla mauris nisl, euismod
-              ut eros sit amet, luctus faucibus dui. Nunc vitae velit in ipsum
-              pretium pharetra id in felis. Praesent pharetra fringilla tellus
-              non fermentum. Nunc ante libero, mollis eu tempor sed, consequat
-              vitae justo. Aenean mi magna, cursus id ornare ac, volutpat a
-              purus. Nullam dictum commodo neque, eget aliquet mi egestas in.
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              dui nisi, porttitor vitae purus eget, varius rhoncus mi. Mauris
-              suscipit interdum libero. Ut ultricies tortor arcu, a sollicitudin
-              libero molestie quis. Cras in feugiat sem. Morbi odio mi, pharetra
-              nec ligula id, aliquam accumsan nibh.
-            </p>
-            <br />
-            <p>
-              Integer ut scelerisque lectus, in sodales justo. Etiam eleifend
-              purus non massa semper tempor. Nulla mattis magna orci, nec
-              elementum mi placerat in. Nam ornare, arcu non imperdiet euismod,
-              enim ex tempor nunc, at varius enim dolor eget leo. Maecenas
-              vestibulum semper nunc, eu maximus tellus sollicitudin et. In et
-              mauris id arcu euismod ultrices sit amet accumsan metus. Mauris
-              ultrices eros vitae lacus auctor ultrices. Sed pretium dui ligula,
-              vitae consequat magna sodales vel. Maecenas auctor urna orci, eu
-              aliquet felis rutrum ornare.
-            </p> */}
           </div>
         </div>
       </div>
@@ -119,16 +90,6 @@ const StyledAboutPage = styled.section`
     background-color: ${(props) => props.theme.white};
     height: 60px;
 
-    /*  
-
-    .AboutPage__right {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 200px;
-      padding: 0 10px;
-    } */
-
     .AboutPage__btn {
       width: 120px;
       height: 40px;
@@ -147,9 +108,13 @@ const StyledAboutPage = styled.section`
     background-color: ${(props) => props.theme.white};
 
     .AboutPage__content-title {
-      display: flex;
+      width: 100%;
+      padding: 30px 0px 30px 30px;
       flex: 1;
-      background-color: red;
+      display: flex;
+
+      font-size: 20px;
+      /*  background-color: red; */
     }
 
     .AboutPage__content-inner {
@@ -174,13 +139,6 @@ const StyledAboutPage = styled.section`
     }
   }
 
-  /* .AboutPage__footer {
-    display: flex;
-    flex: 1;
-    background-color: red;
-    margin: 18px 29px;
-  }
- */
   .AboutPage__footer {
     width: 120px;
     height: 40px;
