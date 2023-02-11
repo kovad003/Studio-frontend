@@ -18,6 +18,10 @@ export const AuthProvider = ({ children }) => {
 		return user;
 	};
 
+	const removeFromLocalStorage = () => {
+		localStorage.removeItem("user");
+	};
+
 	return (
 		<AuthContext.Provider
 			value={{
@@ -27,6 +31,7 @@ export const AuthProvider = ({ children }) => {
 				readFromLocalStorage,
 				isLoading,
 				setIsLoading,
+				removeFromLocalStorage,
 			}}
 		>
 			{children}

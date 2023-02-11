@@ -5,23 +5,27 @@ import GlobalStyles from "./GlobalStyles";
 import { toast } from "react-toastify";
 import theme from "./theme";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import CustomRouter from "./routers/CustomRoutes";
 import useAuth from "./hooks/useAuth";
-import AuthRouter from "./routers/AuthRouter";
+import MainHeader from "./Components/MainHeader/MainHeader";
 
 function App() {
 	const [currentTheme, setCurrentTheme] = useState(false);
-	const { readFromLocalStorage, setAuth, setIsLoading } = useAuth();
+	const { readFromLocalStorage, setAuth, setIsLoading, auth } = useAuth();
 	const navigate = useNavigate();
+	const location = useLocation();
+	const path = location.pathname;
 
 	useEffect(() => {
 		const user = readFromLocalStorage();
+		setIsLoading(true);
 		if (user) {
-			setIsLoading(true);
 			setAuth(user);
 			navigate("/dashboard");
 			toast.success(`Welcome back ${user.user.userName}`);
+			setIsLoading(false);
+		} else {
 			setIsLoading(false);
 		}
 	}, []);
@@ -30,9 +34,13 @@ function App() {
 		<>
 			<GlobalStyles />
 			<ThemeProvider theme={currentTheme ? theme.dark : theme.default}>
-				<AuthRouter>
-					<CustomRouter />
-				</AuthRouter>
+				{path === "/" || path === "/about" || path === "/login" ? (
+					<MainHeader />
+				) : (
+					""
+				)}
+
+				<CustomRouter />
 			</ThemeProvider>
 			<ToastContainer
 				position="bottom-right"

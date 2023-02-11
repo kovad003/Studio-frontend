@@ -17,8 +17,7 @@ const LoginHero = () => {
 };
 
 const StyledLoginHero = styled.div`
-	width: 45%;
-	flex-basis: 40%;
+	flex: 1;
 	position: relative;
 
 	::before {
