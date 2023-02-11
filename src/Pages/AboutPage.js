@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { AboutLogo, Button } from "../Components";
-import AboutTitle from "../Components/About/AboutTitle";
+import { AboutLogo, AboutTitle, Button } from "../Components";
+/* import AboutTitle from "../Components/About/AboutTitle"; */
 import About from "../assets/images/about-img-1.jpg";
 
 const AboutPage = () => {
@@ -20,6 +20,7 @@ const AboutPage = () => {
 
       <div className="AboutPage__content-outer">
         <div className="AboutPage__content-title">
+          {/* <AboutTitle /> */}
           <AboutTitle />
         </div>
         <div className="AboutPage__content-inner">
@@ -153,23 +154,23 @@ const StyledAboutPage = styled.section`
 
     .AboutPage__content-inner {
       display: flex;
-      background-color: yellow;
+      /* background-color: yellow; */
     }
 
     .AboutPage__content-left {
       display: flex;
       flex-direction: column;
-      background-color: green;
       width: 50%;
-      padding: 30px;
+      padding: 30px 15px 30px 30px;
+      /* background-color: green; */
     }
 
     .AboutPage__content-right {
       display: flex;
       flex-direction: column;
-      background-color: blue;
       width: 50%;
-      padding: 30px;
+      padding: 30px 30px 30px 15px;
+      /* background-color: blue; */
     }
   }
 

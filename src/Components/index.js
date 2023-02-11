@@ -12,6 +12,7 @@ import PageContainer from "./PageContainer/PageContainer";
 import Projects from "./Projects/Projects";
 import ProjectsPage from "./Projects/ProjectsPage";
 import AboutLogo from "./About/AboutLogo";
+import AboutTitle from "./About/AboutTitle";
 
 export {
   Button,
@@ -28,4 +29,5 @@ export {
   Projects,
   ProjectsPage,
   AboutLogo,
+  AboutTitle,
 };
