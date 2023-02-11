@@ -1,10 +1,33 @@
-import React from "react";
+import { useEffect } from "react";
 import ProjectListContainer from "../ProjectList/ProjectListContainer";
 import styled from "styled-components";
 import DashboardInfo from "./DashboardInfo/DashboardInfo";
 import DashboardRight from "./DashboardRight/DashboardRight";
+import useAuth from "../../hooks/useAuth";
+import useAppContext from "../../hooks/useAppContext";
+import axios from "../../api/axios";
 
 const Dashboard = () => {
+	const { auth } = useAuth();
+	const { setProjects } = useAppContext();
+
+	const getProjects = async () => {
+		try {
+			const response = await axios.get("api/projects", {
+				headers: {
+					Authorization: `Bearer ${auth.accessToken}`,
+				},
+			});
+			setProjects(response.data);
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
+	useEffect(() => {
+		getProjects();
+	}, []);
+
 	return (
 		<StyledDashboardComponent>
 			<div className="dashboard-content">

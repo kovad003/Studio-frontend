@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { css } from "styled-components";
 
 const Status = ({ type }) => {
-	if (type === "ongoing") {
+	if (type) {
 		return <StyledStatusOngoing>Ongoing</StyledStatusOngoing>;
 	}
 
