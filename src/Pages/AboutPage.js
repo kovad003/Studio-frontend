@@ -25,7 +25,19 @@ const AboutPage = () => {
         <div className="AboutPage__content-inner">
           <div className="AboutPage__content-left">
             {/*  <h1>About page</h1> */}
-            <p>
+            <p className="AboutPage__content-p1">
+              Integer ut scelerisque lectus, in sodales justo. Etiam eleifend
+              purus non massa semper tempor. Nulla mattis magna orci, nec
+              elementum mi placerat in. Nam ornare, arcu non imperdiet euismod,
+              enim ex tempor nunc, at varius enim dolor eget leo. Maecenas
+              vestibulum semper nunc, eu maximus tellus sollicitudin et. In et
+              mauris id arcu euismod ultrices sit amet accumsan metus. Mauris
+              ultrices eros vitae lacus auctor ultrices. Sed pretium dui ligula,
+              vitae consequat magna sodales vel. Maecenas auctor urna orci, eu
+              aliquet felis rutrum ornare.
+            </p>
+
+            <p className="AboutPage__content-p2">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at
               felis mi. In rhoncus elementum ipsum sed varius. Nulla nec cursus
               metus. Nam viverra eu neque at tempor. Nulla mauris nisl, euismod
@@ -36,21 +48,7 @@ const AboutPage = () => {
               purus. Nullam dictum commodo neque, eget aliquet mi egestas in.
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
               dui nisi, porttitor vitae purus eget, varius rhoncus mi. Mauris
-              suscipit interdum libero. Ut ultricies tortor arcu, a sollicitudin
-              libero molestie quis. Cras in feugiat sem. Morbi odio mi, pharetra
-              nec ligula id, aliquam accumsan nibh.
-            </p>
-
-            <p>
-              Integer ut scelerisque lectus, in sodales justo. Etiam eleifend
-              purus non massa semper tempor. Nulla mattis magna orci, nec
-              elementum mi placerat in. Nam ornare, arcu non imperdiet euismod,
-              enim ex tempor nunc, at varius enim dolor eget leo. Maecenas
-              vestibulum semper nunc, eu maximus tellus sollicitudin et. In et
-              mauris id arcu euismod ultrices sit amet accumsan metus. Mauris
-              ultrices eros vitae lacus auctor ultrices. Sed pretium dui ligula,
-              vitae consequat magna sodales vel. Maecenas auctor urna orci, eu
-              aliquet felis rutrum ornare.
+              suscipit interdum libero.
             </p>
           </div>
           <div className="AboutPage__content-right">
@@ -87,7 +85,11 @@ const AboutPage = () => {
         </div>
       </div>
 
-      <div className="AboutPage__footer"></div>
+      {/*  <div className="AboutPage__footer"> */}
+      <div className="AboutPage__footer">
+        <button className="AboutPage__footer-btn">Contact Us</button>
+      </div>
+      {/*    </div> */}
     </StyledAboutPage>
   );
 };
@@ -97,9 +99,17 @@ const StyledAboutPage = styled.section`
   height: 100vh;
   width: 100vw;
 
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
+  .AboutPage__content-p1 {
+    text-align: justify;
+    text-justify: inter-word;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  .AboutPage__content-p2 {
+    text-align: justify;
+    text-justify: inter-word;
+  }
 
   .AboutPage__header {
     display: flex;
@@ -163,9 +173,33 @@ const StyledAboutPage = styled.section`
     }
   }
 
-  p {
-    text-align: justify;
-    text-justify: inter-word;
+  /* .AboutPage__footer {
+    display: flex;
+    flex: 1;
+    background-color: red;
+    margin: 18px 29px;
+  }
+ */
+  .AboutPage__footer {
+    width: 120px;
+    height: 40px;
+    margin: 18px 29px;
+  }
+
+  .AboutPage__footer-btn {
+    width: 154px;
+    height: 40px;
+    border-radius: 6px;
+    color: ${(props) => props.theme.primaryColor};
+    background-color: #0b63e554;
+    font-size: 16px;
+    font-weight: 600;
+    height: 42px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
   }
 `;
 
