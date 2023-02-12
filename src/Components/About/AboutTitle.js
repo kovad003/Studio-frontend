@@ -23,5 +23,13 @@ const StyledAboutTitle = styled.div`
   h1 {
     border-left: 11px solid ${(props) => props.theme.aboutTitle} !important;
   }
+
+  // Media Query for a responsive design on devices of 850px width or less
+  @media (max-width: 850px) {
+    .AboutTitle__text {
+      font-size: 24px;
+      padding-left: 10px;
+    }
+  }
 `;
 export default AboutTitle;

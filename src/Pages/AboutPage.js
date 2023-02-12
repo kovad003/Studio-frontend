@@ -57,6 +57,12 @@ const AboutPage = () => {
           <AboutFooter />
         </div>
       </div>
+
+      <div className="AboutPage__copyright-div">
+        <p className="AboutPage__copyright-text">
+          All rights reserved &#169;{new Date().getUTCFullYear()}
+        </p>
+      </div>
     </StyledAboutPage>
   );
 };
@@ -81,8 +87,9 @@ const StyledAboutPage = styled.section`
     display: flex;
 
     .AboutPage__content-title {
-      width: 100%;
-      padding: 30px 0px 30px 30px;
+      /* width: 100%; */
+      width: 95%;
+      padding: 50px 0px 10px 20px;
       flex: 1;
       display: flex;
     }
@@ -102,6 +109,7 @@ const StyledAboutPage = styled.section`
     .AboutPage__content-inner {
       display: flex;
       justify-content: center;
+      width: 95%;
     }
 
     .AboutPage__content-left {
@@ -128,16 +136,36 @@ const StyledAboutPage = styled.section`
   }
 
   .AboutPage__footer-div {
-    width: 100%;
+    width: 95%;
     flex: 1;
     display: flex;
     padding: 5px 0px 40px 20px;
+  }
+
+  .AboutPage__copyright-div {
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 95%;
+  }
+
+  .AboutPage__copyright-text {
+    font-size: 14px;
+    color: ${(props) => props.theme.darkTextColor};
+    user-select: none;
   }
 
   // Media Query for a responsive design on devices of 850px width or less
   @media (max-width: 850px) {
     padding-left: 5px;
     padding-right: 5px;
+
+    .AboutPage__content-title {
+      padding: 30px 0px 10px 6px !important;
+    }
 
     .AboutPage__content-inner {
       flex-direction: column;
@@ -154,7 +182,17 @@ const StyledAboutPage = styled.section`
     }
 
     .AboutPage__footer-div {
-      padding: 5px 0px 10px 5px;
+      padding: 15px 0px 25px 6px;
+    }
+
+    .AboutPage__copyright-div {
+      position: relative;
+      top: 20px;
+      display: flex;
+      justify-content: center;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      width: 100%;
     }
   }
 `;
