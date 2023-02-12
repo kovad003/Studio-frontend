@@ -1,30 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import { AboutLogo, AboutTitle, Button } from "../Components";
-import About from "../assets/images/about-img-1.jpg";
+import AboutImgMob from "../assets/images/about-img-mob.jpg";
+import AboutImgDesktop from "../assets/images/about-img-desktop.jpg";
 /* import AboutTitle from "../Components/About/AboutTitle"; */
 
 const AboutPage = () => {
   return (
     <StyledAboutPage>
-      {/* <div className="AboutPage__header">
-        <div className="AboutPage__header-left">
-          <AboutLogo />
-        </div>
-        <div className="AboutPage__header-right">
-          <div className="AboutPage__btn">
-            <Button>Login</Button>
-          </div>
-        </div>
-      </div> */}
-
       <div className="AboutPage__content-outer">
         <div className="AboutPage__content-title">
           <AboutTitle />
         </div>
         <div className="AboutPage__content-inner">
           <div className="AboutPage__content-left">
-            {/*  <h1>About page</h1> */}
             <p className="AboutPage__content-p1">
               Integer ut scelerisque lectus, in sodales justo. Etiam eleifend
               purus non massa semper tempor. Nulla mattis magna orci, nec
@@ -52,16 +41,23 @@ const AboutPage = () => {
             </p>
           </div>
           <div className="AboutPage__content-right">
-            <img src={About} alt="About" />
+            {/* <img src={AboutImgDesktop} alt="About" /> */}
+            <picture>
+              <source media="(max-width: 768px)" srcSet={AboutImgMob} />
+              <source media="(min-width: 768px)" srcSet={AboutImgDesktop} />
+              <img
+                className="AboutPage__picture"
+                src={AboutImgDesktop}
+                alt="About"
+              />
+            </picture>
           </div>
         </div>
       </div>
 
-      {/*  <div className="AboutPage__footer"> */}
       <div className="AboutPage__footer">
         <button className="AboutPage__footer-btn">Contact Us</button>
       </div>
-      {/*    </div> */}
     </StyledAboutPage>
   );
 };
@@ -112,15 +108,25 @@ const StyledAboutPage = styled.section`
     .AboutPage__content-left {
       display: flex;
       flex-direction: column;
-      width: 50%;
+      /* width: 50%; */
       padding: 30px 15px 30px 30px;
+      width: 100%;
+      max-width: 700px;
+      height: auto;
     }
 
     .AboutPage__content-right {
       display: flex;
       flex-direction: column;
-      width: 50%;
+      /* width: 50%; */
+      width: 100%;
       padding: 30px 30px 30px 15px;
+
+      .AboutPage__picture {
+        width: 100%;
+        max-width: 700px;
+        height: auto;
+      }
     }
   }
 
