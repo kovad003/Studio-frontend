@@ -68,7 +68,6 @@ const AboutPage = () => {
 
 const StyledAboutPage = styled.section`
   background-color: ${(props) => props.theme.bgColor};
-  /* height: 100vh; */
   width: 100vw;
   height: calc(100vh - 60px);
 
@@ -78,12 +77,9 @@ const StyledAboutPage = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* margin: 18px 29px; */
     border-radius: 12px;
     background-color: ${(props) => props.theme.white};
-
     margin: 0px 29px;
-
     position: relative;
     overflow: hidden;
     top: 18px;
@@ -93,15 +89,6 @@ const StyledAboutPage = styled.section`
       padding: 30px 0px 30px 30px;
       flex: 1;
       display: flex;
-
-      /*   font-size: 20px; */
-
-      border-left: red;
-      border: "10px solid red";
-      /*  background-color: red; */
-    }
-
-    .AboutTitle__text {
       border-left: red;
       border: "10px solid red";
     }
@@ -120,7 +107,6 @@ const StyledAboutPage = styled.section`
 
     .AboutPage__content-inner {
       display: flex;
-      /* background-color: yellow; */
     }
 
     .AboutPage__content-left {
@@ -128,7 +114,6 @@ const StyledAboutPage = styled.section`
       flex-direction: column;
       width: 50%;
       padding: 30px 15px 30px 30px;
-      /* background-color: green; */
     }
 
     .AboutPage__content-right {
@@ -136,7 +121,6 @@ const StyledAboutPage = styled.section`
       flex-direction: column;
       width: 50%;
       padding: 30px 30px 30px 15px;
-      /* background-color: blue; */
     }
   }
 
@@ -162,21 +146,5 @@ const StyledAboutPage = styled.section`
     transition: all 0.3s ease;
   }
 `;
-
-/* 
-  .AboutPage__header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: ${(props) => props.theme.white};
-    height: 60px;
-
-    .AboutPage__btn {
-      width: 120px;
-      height: 40px;
-      margin-right: 40px;
-    }
-  }
-  */
 
 export default AboutPage;

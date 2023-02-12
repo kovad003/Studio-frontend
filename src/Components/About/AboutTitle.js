@@ -15,13 +15,13 @@ const AboutTitle = () => {
 
 const StyledAboutTitle = styled.div`
   .AboutTitle__text {
-    color: red;
     font-size: 34px;
     padding-left: 14px;
+    font-weight: 600;
   }
 
   h1 {
-    border-left: 5px solid red !important;
+    border-left: 11px solid ${(props) => props.theme.aboutTitle} !important;
   }
 `;
 export default AboutTitle;
