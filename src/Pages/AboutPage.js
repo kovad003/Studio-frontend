@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { AboutLogo, AboutTitle, Button } from "../Components";
-/* import AboutTitle from "../Components/About/AboutTitle"; */
 import About from "../assets/images/about-img-1.jpg";
+/* import AboutTitle from "../Components/About/AboutTitle"; */
 
 const AboutPage = () => {
   return (
@@ -94,8 +94,16 @@ const StyledAboutPage = styled.section`
       flex: 1;
       display: flex;
 
-      font-size: 20px;
+      /*   font-size: 20px; */
+
+      border-left: red;
+      border: "10px solid red";
       /*  background-color: red; */
+    }
+
+    .AboutTitle__text {
+      border-left: red;
+      border: "10px solid red";
     }
 
     .AboutPage__content-p1 {
