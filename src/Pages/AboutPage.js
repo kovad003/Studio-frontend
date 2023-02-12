@@ -7,7 +7,7 @@ import About from "../assets/images/about-img-1.jpg";
 const AboutPage = () => {
   return (
     <StyledAboutPage>
-      <div className="AboutPage__header">
+      {/* <div className="AboutPage__header">
         <div className="AboutPage__header-left">
           <AboutLogo />
         </div>
@@ -16,7 +16,7 @@ const AboutPage = () => {
             <Button>Login</Button>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="AboutPage__content-outer">
         <div className="AboutPage__content-title">
@@ -68,34 +68,9 @@ const AboutPage = () => {
 
 const StyledAboutPage = styled.section`
   background-color: ${(props) => props.theme.bgColor};
-  height: 100vh;
+  /* height: 100vh; */
   width: 100vw;
-
-  .AboutPage__content-p1 {
-    text-align: justify;
-    text-justify: inter-word;
-    margin-bottom: 10px;
-    margin-top: 10px;
-  }
-
-  .AboutPage__content-p2 {
-    text-align: justify;
-    text-justify: inter-word;
-  }
-
-  .AboutPage__header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: ${(props) => props.theme.white};
-    height: 60px;
-
-    .AboutPage__btn {
-      width: 120px;
-      height: 40px;
-      margin-right: 40px;
-    }
-  }
+  height: calc(100vh - 60px);
 
   .AboutPage__content-outer {
     flex: 1;
@@ -103,9 +78,15 @@ const StyledAboutPage = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 18px 29px;
+    /* margin: 18px 29px; */
     border-radius: 12px;
     background-color: ${(props) => props.theme.white};
+
+    margin: 0px 29px;
+
+    position: relative;
+    overflow: hidden;
+    top: 18px;
 
     .AboutPage__content-title {
       width: 100%;
@@ -115,6 +96,18 @@ const StyledAboutPage = styled.section`
 
       font-size: 20px;
       /*  background-color: red; */
+    }
+
+    .AboutPage__content-p1 {
+      text-align: justify;
+      text-justify: inter-word;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+
+    .AboutPage__content-p2 {
+      text-align: justify;
+      text-justify: inter-word;
     }
 
     .AboutPage__content-inner {
@@ -142,7 +135,7 @@ const StyledAboutPage = styled.section`
   .AboutPage__footer {
     width: 120px;
     height: 40px;
-    margin: 18px 29px;
+    margin: 28px 29px 0px;
   }
 
   .AboutPage__footer-btn {
@@ -161,5 +154,21 @@ const StyledAboutPage = styled.section`
     transition: all 0.3s ease;
   }
 `;
+
+/* 
+  .AboutPage__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: ${(props) => props.theme.white};
+    height: 60px;
+
+    .AboutPage__btn {
+      width: 120px;
+      height: 40px;
+      margin-right: 40px;
+    }
+  }
+  */
 
 export default AboutPage;
