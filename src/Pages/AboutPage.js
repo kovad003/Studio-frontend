@@ -126,6 +126,7 @@ const StyledAboutPage = styled.section`
         width: 100%;
         max-width: 700px;
         height: auto;
+        border-radius: 12px;
       }
     }
   }
@@ -133,7 +134,7 @@ const StyledAboutPage = styled.section`
   .AboutPage__footer {
     width: 120px;
     height: 40px;
-    margin: 28px 29px 0px;
+    margin: 28px 29px 28px;
   }
 
   .AboutPage__footer-btn {
@@ -150,6 +151,19 @@ const StyledAboutPage = styled.section`
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+  }
+
+  // Media Query for a responsive design on devices of 850px width or less
+  @media (max-width: 850px) {
+    /*     overflow: hidden; */
+
+    .AboutPage__content-inner {
+      flex-direction: column;
+    }
+
+    .AboutPage__content-title {
+      /* padding: 10px 0px 10px 0px; */
+    }
   }
 `;
 
