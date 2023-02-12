@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { AboutLogo, AboutTitle, Button } from "../Components";
 import AboutImgMob from "../assets/images/about-img-mob.jpg";
 import AboutImgDesktop from "../assets/images/about-img-desktop.jpg";
-/* import AboutTitle from "../Components/About/AboutTitle"; */
+import AboutFooter from "../Components/About/AboutFooter";
 
 const AboutPage = () => {
   return (
@@ -41,7 +41,6 @@ const AboutPage = () => {
             </p>
           </div>
           <div className="AboutPage__content-right">
-            {/* <img src={AboutImgDesktop} alt="About" /> */}
             <picture>
               <source media="(max-width: 768px)" srcSet={AboutImgMob} />
               <source media="(min-width: 768px)" srcSet={AboutImgDesktop} />
@@ -53,10 +52,10 @@ const AboutPage = () => {
             </picture>
           </div>
         </div>
-      </div>
 
-      <div className="AboutPage__footer">
-        <button className="AboutPage__footer-btn">Contact Us</button>
+        <div className="AboutPage__footer-div">
+          <AboutFooter />
+        </div>
       </div>
     </StyledAboutPage>
   );
@@ -66,27 +65,26 @@ const StyledAboutPage = styled.section`
   background-color: ${(props) => props.theme.bgColor};
   width: 100vw;
   height: calc(100vh - 60px);
+  padding-left: 29px;
+  padding-right: 29px;
 
   .AboutPage__content-outer {
-    flex: 1;
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     border-radius: 12px;
-    background-color: ${(props) => props.theme.white};
-    margin: 0px 29px;
     position: relative;
     overflow: hidden;
     top: 18px;
+    background-color: ${(props) => props.theme.white};
+    flex: 1;
+    display: flex;
 
     .AboutPage__content-title {
       width: 100%;
       padding: 30px 0px 30px 30px;
       flex: 1;
       display: flex;
-      border-left: red;
-      border: "10px solid red";
     }
 
     .AboutPage__content-p1 {
@@ -103,66 +101,60 @@ const StyledAboutPage = styled.section`
 
     .AboutPage__content-inner {
       display: flex;
+      justify-content: center;
     }
 
     .AboutPage__content-left {
       display: flex;
       flex-direction: column;
-      /* width: 50%; */
-      padding: 30px 15px 30px 30px;
-      width: 100%;
-      max-width: 700px;
+      width: 50%;
       height: auto;
+      padding: 20px;
     }
 
     .AboutPage__content-right {
       display: flex;
       flex-direction: column;
-      /* width: 50%; */
-      width: 100%;
-      padding: 30px 30px 30px 15px;
+      width: 50%;
+      padding: 20px;
 
       .AboutPage__picture {
-        width: 100%;
-        max-width: 700px;
-        height: auto;
         border-radius: 12px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
   }
 
-  .AboutPage__footer {
-    width: 120px;
-    height: 40px;
-    margin: 28px 29px 28px;
-  }
-
-  .AboutPage__footer-btn {
-    width: 154px;
-    height: 40px;
-    border-radius: 6px;
-    color: ${(props) => props.theme.primaryColor};
-    background-color: #0b63e554;
-    font-size: 16px;
-    font-weight: 600;
-    height: 42px;
-    cursor: pointer;
+  .AboutPage__footer-div {
+    width: 100%;
+    flex: 1;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
+    padding: 5px 0px 40px 20px;
   }
 
   // Media Query for a responsive design on devices of 850px width or less
   @media (max-width: 850px) {
-    /*     overflow: hidden; */
+    padding-left: 5px;
+    padding-right: 5px;
 
     .AboutPage__content-inner {
       flex-direction: column;
+
+      .AboutPage__content-left {
+        width: 100%;
+        padding: 5px;
+      }
+
+      .AboutPage__content-right {
+        width: 100%;
+        padding: 5px;
+      }
     }
 
-    .AboutPage__content-title {
-      /* padding: 10px 0px 10px 0px; */
+    .AboutPage__footer-div {
+      padding: 5px 0px 10px 5px;
     }
   }
 `;
