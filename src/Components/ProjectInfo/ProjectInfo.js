@@ -37,7 +37,7 @@ const ProjectInfo = () => {
 					<>
 						<div>
 							<span className="label">Id: </span>
-							<span>{project.projectId}</span>
+							<span>{project.id}</span>
 						</div>
 						<div>
 							<span className="label">Title: </span>
