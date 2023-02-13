@@ -50,21 +50,26 @@ const ProjectInfo = () => {
 								<p className="project-description">{project.description}</p>
 								<SectionTitle>Attachments</SectionTitle>
 								<section className="project-attachment">
-									{project.photos.length > 0
-										? project.photos.map((image) => {
-												return (
-													<a href={image.url} target="_blank">
-														<img
-															key={image.id}
-															src={image.url}
-															alt={image.id}
-														/>
-													</a>
-												);
-										  })
-										: "No image to display"}
+									{project.photos.length > 0 ? (
+										project.photos.map((image) => {
+											return (
+												<a href={image.url} target="_blank">
+													<img key={image.id} src={image.url} alt={image.id} />
+												</a>
+											);
+										})
+									) : (
+										<div className="no-content">No image to display</div>
+									)}
 								</section>
 								<SectionTitle>Comments</SectionTitle>
+								<section className="project-comments">
+									{project.comments.length > 0 ? (
+										"Comments"
+									) : (
+										<div className="no-content">No comments to display</div>
+									)}
+								</section>
 							</section>
 							<section className="project-details">
 								<SectionTitle>Project details</SectionTitle>
@@ -115,7 +120,7 @@ const StyledProjectInfo = styled.section`
 			width: 300px;
 
 			.project-details-card {
-				background-color: ${(props) => props.theme.projectItemHover};
+				background-color: #eff5ff;
 				border-radius: 10px;
 				padding: 20px;
 
@@ -139,6 +144,12 @@ const StyledProjectInfo = styled.section`
 		.project-section {
 			margin-top: 20px;
 			flex: 1;
+
+			.no-content {
+				text-align: center;
+				color: #c4c4c4;
+				font-weight: 900;
+			}
 
 			img {
 				width: 150px;
