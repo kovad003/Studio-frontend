@@ -77,7 +77,7 @@ const ProjectInfo = () => {
 									<div className="detail-item">
 										<span>Status: </span>
 										<span>
-											<Status type={project.status} />
+											<Status type={project.isActive} />
 										</span>
 									</div>
 									<div className="detail-item">
