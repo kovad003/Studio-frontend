@@ -9,7 +9,8 @@ const MainHeader = () => {
 		<StyledMainHeader>
 			<Logo />
 			<nav>
-				<StyledAboutNavLink to="/about">About us</StyledAboutNavLink>
+				<StyledNavLink to="/about">About Us</StyledNavLink>
+				<StyledNavLink to="/contact">Contact Us</StyledNavLink>
 				<Button variant="link" type="short" to="/login">
 					Login
 				</Button>
@@ -29,17 +30,17 @@ const StyledMainHeader = styled.header`
 	background-color: #fff;
 
 	nav {
-		width: 300px;
+		width: 400px;
 		display: flex;
 		align-items: center;
-		gap: 50px;
+		gap: 40px;
 
 		a {
 		}
 	}
 `;
 
-const StyledAboutNavLink = styled(NavLink)`
+const StyledNavLink = styled(NavLink)`
 	font-weight: 600;
 	color: #555;
 	transition: all 0.3s ease;

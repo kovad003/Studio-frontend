@@ -34,7 +34,7 @@ function App() {
 		<>
 			<GlobalStyles />
 			<ThemeProvider theme={currentTheme ? theme.dark : theme.default}>
-				{path === "/" || path === "/about" || path === "/login" ? (
+				{path === "/" || path === "/about" || path === "/login" || path === "/contact" ? (
 					<MainHeader />
 				) : (
 					""
