@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import data from "./dummy.data";
 import ProjectListItem from "./ProjectListItem";
 import useAppContext from "../../hooks/useAppContext";
 

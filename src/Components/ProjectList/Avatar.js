@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-const Avatar = ({ letters }) => {
-	return <StyledAvatar>{letters}</StyledAvatar>;
+const Avatar = ({ owner }) => {
+	const { firstName, lastName } = owner;
+	const letter = firstName[0] + lastName[0];
+	return <StyledAvatar>{letter}</StyledAvatar>;
 };
 
 const StyledAvatar = styled.div`
