@@ -5,8 +5,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const ProjectListItem = ({ owner, id, title, isActive, createdOn }) => {
-	const { firstName, lastName } = owner;
-	const letter = firstName[0] + lastName[0];
 	return (
 		<StyledProjectListItem to={`/dashboard/projects/${id}`}>
 			<span
@@ -14,7 +12,7 @@ const ProjectListItem = ({ owner, id, title, isActive, createdOn }) => {
 				style={{ backgroundColor: !isActive ? "#A2DAB8" : "#6FB8FC" }}
 			></span>
 			<span className="client-name col-1">
-				<Avatar letters={letter} />
+				<Avatar owner={owner} />
 				{owner.firstName} {owner.lastName}
 			</span>
 			<span className="col-2">{id.substring(0, 10)}</span>
