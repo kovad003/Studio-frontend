@@ -10,6 +10,7 @@ import {
 import WelcomePage from "../Pages/WelcomePage";
 import LoginPage from "../Pages/LoginPage/LoginPage";
 import AboutPage from "../Pages/AboutPage";
+import ContactPage from "../Pages/ContactPage";
 import DashboardPage from "../Pages/DashboardPage";
 import NotFound from "../Pages/NotFound";
 import RequireAuth from "../Components/RequireAuth";
@@ -29,6 +30,7 @@ const CustomRouter = () => {
 			<Route path="/" element={<WelcomePage />} />
 			<Route path="/login" element={<LoginPage />} />
 			<Route path="/about" element={<AboutPage />} />
+			<Route path="/contact" element={<ContactPage />} />
 			<Route path="unauthorized" element={<NotAllowed />} />
 			<Route element={<RequireAuth allowedRoles={[ROLES.admin]} />}>
 				<Route path="/dashboard" element={<DashboardPage />}>
