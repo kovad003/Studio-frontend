@@ -15,29 +15,25 @@ const AboutPage = () => {
         <div className="AboutPage__content-inner">
           <div className="AboutPage__content-left">
             <p className="AboutPage__content-p1">
-              Integer ut scelerisque lectus, in sodales justo. Etiam eleifend
-              purus non massa semper tempor. Nulla mattis magna orci, nec
-              elementum mi placerat in. Nam ornare, arcu non imperdiet euismod,
-              enim ex tempor nunc, at varius enim dolor eget leo. Maecenas
-              vestibulum semper nunc, eu maximus tellus sollicitudin et. In et
-              mauris id arcu euismod ultrices sit amet accumsan metus. Mauris
-              ultrices eros vitae lacus auctor ultrices. Sed pretium dui ligula,
-              vitae consequat magna sodales vel. Maecenas auctor urna orci, eu
-              aliquet felis rutrum ornare.
+              Welcome to the Studio Portal Web App! This web app serves as part
+              of the David Kele business enterprise. The website
+              www.davidkele.com is an Independent Business Enterprise
+              (selbständige gewerbebetrieb) based in Berlin, Germany. The
+              company is owned and run by the business owner David Kele, and the
+              primary business activity of the company is stylist work. The
+              company also conducts other activities such as ecommerce, content
+              creation, product design, and still life fashion work.
             </p>
 
             <p className="AboutPage__content-p2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at
-              felis mi. In rhoncus elementum ipsum sed varius. Nulla nec cursus
-              metus. Nam viverra eu neque at tempor. Nulla mauris nisl, euismod
-              ut eros sit amet, luctus faucibus dui. Nunc vitae velit in ipsum
-              pretium pharetra id in felis. Praesent pharetra fringilla tellus
-              non fermentum. Nunc ante libero, mollis eu tempor sed, consequat
-              vitae justo. Aenean mi magna, cursus id ornare ac, volutpat a
-              purus. Nullam dictum commodo neque, eget aliquet mi egestas in.
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-              dui nisi, porttitor vitae purus eget, varius rhoncus mi. Mauris
-              suscipit interdum libero.
+              For registered clients, the Studio Portal Web App provides a
+              platform for clients to send projects and tasks to
+              www.davidkele.com via an interactive, private dashboard. Alongside
+              sending project tasks, clients can communicate directly with the
+              studio via an innovative, in-app commenting feature. The studio
+              can also respond and assist with any task! If you or your business
+              wish to become a client of the studio, please feel free to get in
+              touch!
             </p>
           </div>
           <div className="AboutPage__content-right">
