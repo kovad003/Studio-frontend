@@ -26,6 +26,8 @@ const theme = {
     lightCardColor: "#8A8A8A",
     lightInfoIcon: "#8E8E8E",
     aboutTitle: "#0b63e533",
+    aboutBtn: "#0b63e554",
+    aboutHover: "#cee1fd",
   },
   dark: {},
 };

@@ -32,6 +32,10 @@ const StyledAboutFooter = styled.div`
     justify-content: center;
     transition: all 0.3s ease;
     border: none;
+
+    :hover {
+      background-color: ${(props) => props.theme.aboutHover};
+    }
   }
 `;
 export default AboutFooter;
