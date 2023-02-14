@@ -17,10 +17,10 @@ const AboutPage = () => {
             <p className="AboutPage__content-p1">
               Welcome to the Studio Portal Web App! This web app serves as part
               of the David Kele business enterprise. The website
-              www.davidkele.com is an Independent Business Enterprise
-              (selbständige gewerbebetrieb) based in Berlin, Germany. The
-              company is owned and run by the business owner David Kele, and the
-              primary business activity of the company is stylist work. The
+              <span> www.davidkele.com</span> is an Independent Business
+              Enterprise (selbständige gewerbebetrieb) based in Berlin, Germany.
+              The company is owned and run by the business owner David Kele, and
+              the primary business activity of the company is stylist work. The
               company also conducts other activities such as ecommerce, content
               creation, product design, and still life fashion work.
             </p>
@@ -28,12 +28,12 @@ const AboutPage = () => {
             <p className="AboutPage__content-p2">
               For registered clients, the Studio Portal Web App provides a
               platform for clients to send projects and tasks to
-              www.davidkele.com via an interactive, private dashboard. Alongside
-              sending project tasks, clients can communicate directly with the
-              studio via an innovative, in-app commenting feature. The studio
-              can also respond and assist with any task! If you or your business
-              wish to become a client of the studio, please feel free to get in
-              touch!
+              <span> www.davidkele.com</span> via an interactive, private
+              dashboard. Alongside sending project tasks, clients can
+              communicate directly with the studio via an innovative, in-app
+              commenting feature. The studio can also respond and assist with
+              any task. If you or your business wish to become a client of the
+              studio, please feel free to get in touch!
             </p>
           </div>
           <div className="AboutPage__content-right">
@@ -70,6 +70,10 @@ const StyledAboutPage = styled.section`
   padding-left: 29px;
   padding-right: 29px;
 
+  span {
+    font-weight: bold;
+  }
+
   .AboutPage__content-outer {
     flex-direction: column;
     align-items: center;
@@ -94,12 +98,14 @@ const StyledAboutPage = styled.section`
       text-align: justify;
       text-justify: inter-word;
       margin-bottom: 10px;
-      margin-top: 10px;
+      margin-top: 17px; //10px;
+      line-height: 23px;
     }
 
     .AboutPage__content-p2 {
       text-align: justify;
       text-justify: inter-word;
+      line-height: 23px;
     }
 
     .AboutPage__content-inner {
@@ -168,12 +174,16 @@ const StyledAboutPage = styled.section`
 
       .AboutPage__content-left {
         width: 100%;
-        padding: 5px;
+        padding: 5px 5px 25px 5px;
+
+        .AboutPage__content-p1 {
+          margin-bottom: 20px;
+        }
       }
 
       .AboutPage__content-right {
         width: 100%;
-        padding: 5px;
+        padding: 5px 5px 15px 5px;
       }
     }
 
