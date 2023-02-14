@@ -138,14 +138,6 @@ const StyledCreateUserPage = styled.div`
       border-radius: 10px;
     }
   }
-
-  /* 	:focus {
-		border-color: ${(props) => props.theme.primaryColor};
-		outline: none;
-		box-shadow: 0 0 0 4px ${(props) => props.theme.lightBtnBg};
-		background-color: ${(props) => props.theme.inputFocusBg};
-	}
- */
 `;
 
 export default CreateUserPage;
