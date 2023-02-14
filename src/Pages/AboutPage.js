@@ -78,13 +78,15 @@ const StyledAboutPage = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
+    /* border-radius: 12px; */
     position: relative;
     overflow: hidden;
     top: 18px;
     background-color: ${(props) => props.theme.white};
     flex: 1;
     display: flex;
+    border-radius: 20px;
+    box-shadow: 0 4px 30px 0 rgba(11, 99, 229, 0.13);
 
     .AboutPage__content-title {
       /* width: 100%; */
