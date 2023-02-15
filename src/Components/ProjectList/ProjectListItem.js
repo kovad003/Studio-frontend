@@ -3,6 +3,7 @@ import Avatar from "./Avatar";
 import Status from "../Status/Status";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { AiOutlineDelete } from "react-icons/ai";
 
 const ProjectListItem = ({ owner, id, title, isActive, createdOn }) => {
   return (
@@ -21,7 +22,9 @@ const ProjectListItem = ({ owner, id, title, isActive, createdOn }) => {
         <Status type={isActive} />
       </span>
       <span className="col-5">{new Date(createdOn).toLocaleDateString()}</span>
-      <span className="col-6">{new Date(createdOn).toLocaleDateString()}</span>
+      <span className="col-6">
+        <button className="col-6__btn">{<AiOutlineDelete size={20} />}</button>
+      </span>
     </StyledProjectListItem>
   );
 };
@@ -83,20 +86,22 @@ const StyledProjectListItem = styled(Link)`
 
   .col-6 {
     grid-column: 10 / span 1;
+    padding-left: 10px;
   }
 
-  /* 
-  .col-1 {
-    grid-column: 1 / span 2;
-  }
+  .col-6__btn {
+    background-color: ${(props) => props.theme.dangerBg};
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    padding: 1px 0px 0px 1px;
+    border: none;
+    cursor: pointer;
 
-  .col-3 {
-    grid-column: 4 / span 4;
+    :hover {
+      background-color: ${(props) => props.theme.deleteBtnHover};
+    }
   }
-
-  .col-5 {
-    grid-column: 9 / span 2;
-  } */
 `;
 
 export default ProjectListItem;

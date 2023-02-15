@@ -18,6 +18,7 @@ const theme = {
     reviewBg: "#FCECC2",
     reviewColor: "#674C32",
     dangerBg: "#FF7B7B",
+    deleteBtnHover: "#ff9999", // AD addition
     lightBtnBg: "#CEE0FA",
     darkTextColor: "#333",
     sidebarSelectedBg: "#30425b",
@@ -25,9 +26,9 @@ const theme = {
     projectItemHover: "#E2EAF5",
     lightCardColor: "#8A8A8A",
     lightInfoIcon: "#8E8E8E",
-    aboutTitle: "#0b63e533",
-    aboutBtn: "#0b63e554",
-    aboutHover: "#cee1fd",
+    aboutTitle: "#0b63e533", // AD addition
+    aboutBtn: "#0b63e554", // AD addition
+    aboutHover: "#cee1fd", // AD addition
   },
   dark: {},
 };

@@ -52,20 +52,6 @@ const StyledProjectList = styled.section`
     .title-6 {
       grid-column: 10 / span 1;
     }
-
-    /* 
-	.title-1 {
-      grid-column: 1 / span 2;
-    }
-
-    .title-3 {
-      grid-column: 4 / span 4;
-    }
-
-    .title-5 {
-      grid-column: 9 / span 2;
-    }
-	 */
   }
 `;
 
