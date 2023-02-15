@@ -73,20 +73,12 @@ const StyledProjectListItem = styled(Link)`
     grid-column: 1 / span 2;
   }
 
-  .col-2 {
-    grid-column: 3 / span 1;
-  }
-
   .col-3 {
-    grid-column: 4 / span 3;
-  }
-
-  .col-4 {
-    grid-column: 7 / span 1;
+    grid-column: 4 / span 4;
   }
 
   .col-5 {
-    grid-column: 8 / span 2;
+    grid-column: 9 / span 1;
   }
 
   .col-6 {

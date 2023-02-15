@@ -41,20 +41,12 @@ const StyledProjectList = styled.section`
       grid-column: 1 / span 2;
     }
 
-    .title-2 {
-      grid-column: 3 / span 1;
-    }
-
     .title-3 {
-      grid-column: 4 / span 3;
-    }
-
-    .title-4 {
-      grid-column: 7 / span 1;
+      grid-column: 4 / span 4;
     }
 
     .title-5 {
-      grid-column: 8 / span 2;
+      grid-column: 9 / span 1;
     }
 
     .title-6 {
