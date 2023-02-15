@@ -21,6 +21,7 @@ const CreateUserPage = () => {
   const [state, setState] = useState(initialState);
   const { auth } = useAuth();
   const navigate = useNavigate();
+  const [isVisible, setIsVisible] = useState(false);
 
   const onChangeHandler = (e) => {
     const name = e.target.name;
@@ -104,7 +105,17 @@ const CreateUserPage = () => {
           placeholder="Company name"
           type="text"
         />
-        <div className="CreateUserPage__btn">
+        <div className="CreateUserPage__hidden-div">
+          {isVisible && (
+            <span className="CreateUserPage__hidden">Add User</span>
+          )}
+        </div>
+
+        <div
+          className="CreateUserPage__btn"
+          onMouseEnter={() => setIsVisible(true)}
+          onMouseLeave={() => setIsVisible(false)}
+        >
           <Button action={handleFormSubmit}>Add User</Button>
         </div>
       </Form>
@@ -126,11 +137,22 @@ const StyledCreateUserPage = styled.div`
     right: 1px;
   }
 
+  .CreateUserPage__hidden-div {
+    height: 20px;
+  }
+
+  .CreateUserPage__hidden {
+    font-size: 14px;
+    position: relative;
+    top: 6px;
+    left: 1px;
+    color: ${(props) => props.theme.dangerBg};
+  }
+
   .CreateUserPage__btn {
-    margin-top: 30px;
+    margin-top: 10px;
 
     :hover {
-      /* border-color: ${(props) => props.theme.btnHover}; */
       border-color: ${(props) => props.theme.primaryColor};
       outline: none;
       box-shadow: 0 0 0 4px ${(props) => props.theme.lightBtnBg};
