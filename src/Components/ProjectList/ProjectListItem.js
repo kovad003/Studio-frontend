@@ -23,7 +23,16 @@ const ProjectListItem = ({ owner, id, title, isActive, createdOn }) => {
       </span>
       <span className="col-5">{new Date(createdOn).toLocaleDateString()}</span>
       <span className="col-6">
-        <button className="col-6__btn">{<AiOutlineDelete size={20} />}</button>
+        <button
+          className="col-6__btn"
+          onClick={(e) => {
+            e.stopPropagation();
+            if (window.confirm("Are you sure you wish to delete this item?"))
+              this.onSubmit();
+          }}
+        >
+          {<AiOutlineDelete size={20} />}
+        </button>
       </span>
     </StyledProjectListItem>
   );
@@ -86,7 +95,7 @@ const StyledProjectListItem = styled(Link)`
 
   .col-6 {
     grid-column: 10 / span 1;
-    padding-left: 8.5px;
+    padding-left: 8px;
   }
 
   .col-6__btn {
