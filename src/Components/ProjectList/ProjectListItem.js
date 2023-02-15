@@ -86,7 +86,7 @@ const StyledProjectListItem = styled(Link)`
 
   .col-6 {
     grid-column: 10 / span 1;
-    padding-left: 10px;
+    padding-left: 8.5px;
   }
 
   .col-6__btn {
