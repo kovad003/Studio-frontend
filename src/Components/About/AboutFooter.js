@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import styled from "styled-components";
 
@@ -6,7 +7,9 @@ const AboutFooter = () => {
   return (
     <StyledAboutFooter>
       <div className="AboutPage__footer">
-        <button className="AboutPage__footer-btn">Contact Us</button>
+        <Link to={"/contact"}>
+          <button className="AboutPage__footer-btn"> Contact Us</button>
+        </Link>
       </div>
     </StyledAboutFooter>
   );
@@ -32,6 +35,10 @@ const StyledAboutFooter = styled.div`
     justify-content: center;
     transition: all 0.3s ease;
     border: none;
+
+    :hover {
+      background-color: ${(props) => props.theme.aboutHover};
+    }
   }
 `;
 export default AboutFooter;
