@@ -12,6 +12,7 @@ import PageContainer from "./PageContainer/PageContainer";
 import Projects from "./Projects/Projects";
 import ProjectsPage from "./Projects/ProjectsPage";
 import AboutTitle from "./About/AboutTitle";
+import UserInfo from "./UserInfo/UserInfo";
 
 export {
   Button,
@@ -23,6 +24,7 @@ export {
   DashboardHeader,
   Updates,
   Users,
+  UserInfo, // AD addition
   ProjectInfo,
   PageContainer,
   Projects,
