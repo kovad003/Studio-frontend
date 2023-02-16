@@ -36,7 +36,7 @@ const UserInfo = () => {
 
   return (
     <PageContainer>
-      <BreadCrumbs />
+      {/* <BreadCrumbs /> */}
       <h1 className="page-title">User Info</h1>
       <StyledUserInfo>
         {project ? (

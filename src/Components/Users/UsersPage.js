@@ -103,6 +103,10 @@ const StyledUsersPage = styled.div`
   }
 
   .UsersPage__table-row {
+    :hover {
+      background-color: ${(props) => props.theme.aboutHover};
+      cursor: pointer;
+    }
   }
 `;
 

@@ -115,8 +115,15 @@ const CreateUserPage = () => {
           className="CreateUserPage__btn"
           onMouseEnter={() => setIsVisible(true)}
           onMouseLeave={() => setIsVisible(false)}
+          onFocus={() => setIsVisible(true)}
+          onBlur={() => setIsVisible(false)}
         >
-          <Button action={handleFormSubmit}>Add User</Button>
+          <Button
+            action={handleFormSubmit}
+            className="CreateUserPage__btn-inner"
+          >
+            Add User
+          </Button>
         </div>
       </Form>
     </StyledCreateUserPage>
@@ -159,6 +166,13 @@ const StyledCreateUserPage = styled.div`
       background-color: ${(props) => props.theme.inputFocusBg};
       border-radius: 10px;
     }
+  }
+
+  button:focus {
+    border-color: ${(props) => props.theme.primaryColor};
+    outline: none;
+    box-shadow: 0 0 0 4px ${(props) => props.theme.lightBtnBg};
+    border-radius: 10px;
   }
 `;
 
