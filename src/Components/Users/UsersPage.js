@@ -11,7 +11,8 @@ const UsersPage = ({ id }) => {
   const navigate = useNavigate();
 
   function handleClick() {
-    navigate(`/dashboard/users/${id}`);
+    /* navigate(`/dashboard/users/${id}`); */
+    navigate(`/dashboard/users/d76ce46e-a8f0-4a0f-8e13-12f897f5c1eb`);
   }
 
   const getUsers = async () => {
