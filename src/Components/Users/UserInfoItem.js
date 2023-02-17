@@ -20,13 +20,16 @@ const UserInfoItem = ({
 }) => {
   return (
     <StyledUserInfoItem to={`/dashboard/users/${id}`}>
-      <span className="client-name col-1">{firstName}</span>
+      <span className="indicator"></span>
+      <span className="client-name col-1">
+        {firstName} {lastName}
+      </span>
 
-      <span className="col-2">{lastName}</span>
-      <span className="col-3">{company}</span>
-      <span className="col-4">{email}</span>
-      <span className="col-5">{phoneNumber}</span>
+      <span className="col-2">{company}</span>
+      <span className="col-3">{email}</span>
+      <span className="col-4">{phoneNumber}</span>
       <span className="col-5">{role}</span>
+      {/* <span className="col-6">{role}</span> */}
 
       {/*
       <tr className="UsersPage__table-row" type="button">
@@ -71,7 +74,7 @@ const StyledUserInfoItem = styled(Link)`
     top: 0;
     width: 8px;
     height: 100%;
-    background-color: red;
+    background-color: #feb304;
     border-radius: 10px 0 0 10px;
   }
 

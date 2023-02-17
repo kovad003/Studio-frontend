@@ -40,35 +40,37 @@ const UsersPage = ({ id }) => {
 
   return (
     <StyledUsersPage>
-      <PageContainer>
-        <BreadCrumbs />
-        <h1 className="page-title">Users page</h1>
-        <table>
+      {/* <PageContainer> */}
+      <BreadCrumbs />
+      <h1 className="page-title">Users page</h1>
+      {/* <table>
           <thead>
-            <tr>
-              <th>Name</th>
-              <th>Lastname</th>
-              <th>Company</th>
-              <th>Email</th>
-              <th>Phone Number</th>
-              <th>Role</th>
-            </tr>
+            <tr> */}
+      <div className="project-list--titles">
+        <span className="title-1">Client Name</span>
+        <span className="title-2">Company</span>
+        <span className="title-3">Email</span>
+        <span className="title-4">Phone Number</span>
+        <span className="title-5">Role</span>
+        {/*     <span className="title-6">Role</span> */}
+        {/*  <th>Name</th>
+      <th>Lastname</th>
+      <th>Company</th>
+      <th>Email</th>
+      <th>Phone Number</th>
+      <th>Role</th> */}
+      </div>
+      {/*   </tr>
           </thead>
-          <tbody>
-            {users
-              ? users.map((user) => {
-                  const {
-                    firstName,
-                    lastName,
-                    company,
-                    email,
-                    phoneNumber,
-                    role,
-                  } = user;
-                  return (
-                    <UserInfoItem key={user.id} {...user} />
+          <tbody> */}
+      {users
+        ? users.map((user) => {
+            const { firstName, lastName, company, email, phoneNumber, role } =
+              user;
+            return (
+              <UserInfoItem key={user.id} {...user} />
 
-                    /*  <tr
+              /*  <tr
                     className="UsersPage__table-row"
                     type="button"
                     onClick={handleClick}
@@ -80,12 +82,12 @@ const UsersPage = ({ id }) => {
                     <td>{phoneNumber}</td>
                     <td>{role}</td>
                   </tr> */
-                  );
-                })
-              : "Loading..."}
-          </tbody>
-        </table>
-      </PageContainer>
+            );
+          })
+        : "Loading..."}
+      {/*   </tbody>
+        </table> */}
+      {/*     </PageContainer> */}
     </StyledUsersPage>
   );
 };
@@ -94,7 +96,7 @@ const StyledUsersPage = styled.div`
   background-color: #fff;
   padding: 20px;
 
-  table {
+  /* table {
     border-collapse: collapse;
     width: 100%;
 
@@ -110,6 +112,34 @@ const StyledUsersPage = styled.div`
 
     tr:nth-child(odd) {
       background-color: ${(props) => props.theme.projectItemHover};
+    }
+  } */
+
+  .project-list--titles {
+    width: 100%;
+    background-color: ${(props) => props.theme.darkBgColor};
+    color: ${(props) => props.theme.white};
+    height: 40px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    align-items: center;
+    padding: 0 20px;
+
+    .title-1 {
+      grid-column: 1 / span 2;
+    }
+
+    .title-3 {
+      grid-column: 4 / span 4;
+    }
+
+    .title-5 {
+      grid-column: 9 / span 1;
+    }
+
+    .title-6 {
+      grid-column: 10 / span 1;
     }
   }
 

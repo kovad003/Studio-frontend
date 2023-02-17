@@ -8,6 +8,7 @@ const Users = () => {
     <PageContainer>
       {/* <BreadCrumbs />
       <h1 className="page-title">Users page</h1> */}
+
       <Outlet />
     </PageContainer>
   );

@@ -43,7 +43,7 @@ const UserInfo = () => {
 
       {user ? (
         <>
-          {/*      <span>{user.userName}</span> */}
+          {/* <span>{user.userName}</span> */}
           <span>{user.firstName}</span>
           <span>{user.lastName}</span>
           <span>{user.company}</span>
