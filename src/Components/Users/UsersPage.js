@@ -4,6 +4,9 @@ import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
 import styled from "styled-components";
 import { useNavigate } from "react-router";
+import UserInfoItem from "./UserInfoItem";
+import BreadCrumbs from "../BreadCrumbs/BreadCrumbs";
+import PageContainer from "../PageContainer/PageContainer";
 
 const UsersPage = ({ id }) => {
   const [users, setUsers] = React.useState(null);
@@ -12,7 +15,8 @@ const UsersPage = ({ id }) => {
 
   function handleClick() {
     /* navigate(`/dashboard/users/${id}`); */
-    navigate(`/dashboard/users/d76ce46e-a8f0-4a0f-8e13-12f897f5c1eb`);
+    /*  navigate(`/dashboard/users/d76ce46e-a8f0-4a0f-8e13-12f897f5c1eb`); */
+    navigate(`/dashboard/users/${id}`);
   }
 
   const getUsers = async () => {
@@ -36,30 +40,35 @@ const UsersPage = ({ id }) => {
 
   return (
     <StyledUsersPage>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Lastname</th>
-            <th>Company</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-            <th>Role</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users
-            ? users.map((user) => {
-                const {
-                  firstName,
-                  lastName,
-                  company,
-                  email,
-                  phoneNumber,
-                  role,
-                } = user;
-                return (
-                  <tr
+      <PageContainer>
+        <BreadCrumbs />
+        <h1 className="page-title">Users page</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Lastname</th>
+              <th>Company</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+              <th>Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users
+              ? users.map((user) => {
+                  const {
+                    firstName,
+                    lastName,
+                    company,
+                    email,
+                    phoneNumber,
+                    role,
+                  } = user;
+                  return (
+                    <UserInfoItem key={user.id} {...user} />
+
+                    /*  <tr
                     className="UsersPage__table-row"
                     type="button"
                     onClick={handleClick}
@@ -70,12 +79,13 @@ const UsersPage = ({ id }) => {
                     <td>{email}</td>
                     <td>{phoneNumber}</td>
                     <td>{role}</td>
-                  </tr>
-                );
-              })
-            : "Loading..."}
-        </tbody>
-      </table>
+                  </tr> */
+                  );
+                })
+              : "Loading..."}
+          </tbody>
+        </table>
+      </PageContainer>
     </StyledUsersPage>
   );
 };

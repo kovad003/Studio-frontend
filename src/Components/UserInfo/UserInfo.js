@@ -5,10 +5,6 @@ import BreadCrumbs from "../BreadCrumbs/BreadCrumbs";
 import styled from "styled-components";
 import useAuth from "../../hooks/useAuth";
 import axios from "../../api/axios";
-import Avatar from "../ProjectList/Avatar";
-import Status from "../Status/Status";
-/* import SectionTitle from "./SectionTitle"; */
-import SectionTitle from "../ProjectInfo/SectionTitle";
 
 /* const UserInfo = () => { */
 const UserInfo = () => {
@@ -20,7 +16,8 @@ const UserInfo = () => {
     try {
       /* const response = await axios.get(`/api/useraccount/get-user/${id}`, { */
       const response = await axios.get(
-        `/api/useraccount/get-user/d76ce46e-a8f0-4a0f-8e13-12f897f5c1eb`,
+        /*   `/api/useraccount/get-user/d76ce46e-a8f0-4a0f-8e13-12f897f5c1eb`, */
+        `/api/useraccount/get-user/${id}`,
         {
           headers: {
             Authorization: `Bearer ${auth.accessToken}`,
@@ -40,19 +37,18 @@ const UserInfo = () => {
   console.log(user);
 
   return (
-    <PageContainer>
-      {/* <BreadCrumbs /> */}
+    <StyledUserInfo>
+      <BreadCrumbs />
       <h1 className="page-title">User Info</h1>
-      <StyledUserInfo>
-        {user ? (
-          <>
-            <span>{user.userName}</span>
-          </>
-        ) : (
-          "Loading..."
-        )}
-      </StyledUserInfo>
-    </PageContainer>
+
+      {user ? (
+        <>
+          <span>{user.userName}</span>
+        </>
+      ) : (
+        "Loading..."
+      )}
+    </StyledUserInfo>
   );
 };
 
