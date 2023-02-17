@@ -93,7 +93,7 @@ const UsersPage = ({ id }) => {
 };
 
 const StyledUsersPage = styled.div`
-  background-color: #fff;
+  /* background-color: #fff; */
   padding: 20px;
 
   /* table {
