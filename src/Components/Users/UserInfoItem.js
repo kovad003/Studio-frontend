@@ -93,6 +93,23 @@ const StyledUserInfoItem = styled(Link)`
   }
 
   .col-3 {
+    grid-column: 4 / span 3;
+  }
+
+  .col-4 {
+    grid-column: 7 / span 2;
+  }
+
+  .col-5 {
+    grid-column: 9 / span 2;
+  }
+
+  /* .col-1 {
+    grid-column: 1 / span 2;
+  }
+
+  
+  .col-3 {
     grid-column: 4 / span 4;
   }
 
@@ -117,7 +134,7 @@ const StyledUserInfoItem = styled(Link)`
     :hover {
       background-color: ${(props) => props.theme.deleteBtnHover};
     }
-  }
+  } */
 `;
 
 export default UserInfoItem;

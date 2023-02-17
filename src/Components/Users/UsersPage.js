@@ -43,46 +43,20 @@ const UsersPage = ({ id }) => {
       {/* <PageContainer> */}
       <BreadCrumbs />
       <h1 className="page-title">Users page</h1>
-      {/* <table>
-          <thead>
-            <tr> */}
+
       <div className="project-list--titles">
         <span className="title-1">Client Name</span>
         <span className="title-2">Company</span>
         <span className="title-3">Email</span>
         <span className="title-4">Phone Number</span>
         <span className="title-5">Role</span>
-        {/*     <span className="title-6">Role</span> */}
-        {/*  <th>Name</th>
-      <th>Lastname</th>
-      <th>Company</th>
-      <th>Email</th>
-      <th>Phone Number</th>
-      <th>Role</th> */}
       </div>
-      {/*   </tr>
-          </thead>
-          <tbody> */}
+
       {users
         ? users.map((user) => {
             const { firstName, lastName, company, email, phoneNumber, role } =
               user;
-            return (
-              <UserInfoItem key={user.id} {...user} />
-
-              /*  <tr
-                    className="UsersPage__table-row"
-                    type="button"
-                    onClick={handleClick}
-                  >
-                    <td>{firstName}</td>
-                    <td>{lastName}</td>
-                    <td>{company}</td>
-                    <td>{email}</td>
-                    <td>{phoneNumber}</td>
-                    <td>{role}</td>
-                  </tr> */
-            );
+            return <UserInfoItem key={user.id} {...user} />;
           })
         : "Loading..."}
       {/*   </tbody>
@@ -131,6 +105,22 @@ const StyledUsersPage = styled.div`
     }
 
     .title-3 {
+      grid-column: 4 / span 3;
+    }
+
+    .title-4 {
+      grid-column: 7 / span 2;
+    }
+
+    .title-5 {
+      grid-column: 9 / span 2;
+    }
+
+    /* .title-1 {
+      grid-column: 1 / span 2;
+    }
+
+    .title-3 {
       grid-column: 4 / span 4;
     }
 
@@ -140,7 +130,7 @@ const StyledUsersPage = styled.div`
 
     .title-6 {
       grid-column: 10 / span 1;
-    }
+    } */
   }
 
   .UsersPage__table-row {
