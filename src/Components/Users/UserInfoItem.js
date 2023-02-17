@@ -1,9 +1,10 @@
 import React from "react";
 /* import Avatar from "./Avatar"; */
-import Status from "../Status/Status";
+/* import Status from "../Status/Status"; */
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { AiOutlineDelete } from "react-icons/ai";
+import Status from "../Status/Status";
 
 const UserInfoItem = ({
   id,
@@ -19,6 +20,15 @@ const UserInfoItem = ({
 }) => {
   return (
     <StyledUserInfoItem to={`/dashboard/users/${id}`}>
+      <span className="client-name col-1">{firstName}</span>
+
+      <span className="col-2">{lastName}</span>
+      <span className="col-3">{company}</span>
+      <span className="col-4">{email}</span>
+      <span className="col-5">{phoneNumber}</span>
+      <span className="col-5">{role}</span>
+
+      {/*
       <tr className="UsersPage__table-row" type="button">
         <td>{firstName}</td>
         <td>{lastName}</td>
@@ -26,7 +36,8 @@ const UserInfoItem = ({
         <td>{email}</td>
         <td>{phoneNumber}</td>
         <td>{role}</td>
-      </tr>
+      </tr> 
+      */}
     </StyledUserInfoItem>
   );
 };
