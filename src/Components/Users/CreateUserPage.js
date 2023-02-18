@@ -8,6 +8,8 @@ import axios from "../../api/axios";
 import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
+import PageContainer from "../PageContainer/PageContainer";
+import BreadCrumbs from "../BreadCrumbs/BreadCrumbs";
 
 const initialState = {
   name: { value: "", isError: false },
@@ -63,69 +65,75 @@ const CreateUserPage = () => {
 
   return (
     <StyledCreateUserPage>
-      <Form width="545px" height="100%">
-        <h3 className="CreateUserPage__title">Create User</h3>
-        <InputWrapper
-          id="name"
-          name="name"
-          action={onChangeHandler}
-          value={state.name}
-          placeholder="Contact person name"
-          type="text"
-        />
-        <InputWrapper
-          id="lastname"
-          name="lastname"
-          action={onChangeHandler}
-          value={state.lastname}
-          placeholder="Contact person lastname"
-          type="text"
-        />
-        <InputWrapper
-          id="email"
-          name="email"
-          action={onChangeHandler}
-          value={state.email}
-          placeholder="Contact email address"
-          type="text"
-        />
-        <InputWrapper
-          id="phone"
-          name="phone"
-          action={onChangeHandler}
-          value={state.phone}
-          placeholder="Contact phone number"
-          type="text" // Could be a number, yet perhaps text is better for the (+) symbol with international format
-        />
-        <InputWrapper
-          id="company"
-          name="company"
-          action={onChangeHandler}
-          value={state.company}
-          placeholder="Company name"
-          type="text"
-        />
-        <div className="CreateUserPage__hidden-div">
-          {isVisible && (
-            <span className="CreateUserPage__hidden">Add User</span>
-          )}
-        </div>
+      <PageContainer>
+        <BreadCrumbs />
+        <h1 className="page-title">Create User</h1>
 
-        <div
-          className="CreateUserPage__btn"
-          onMouseEnter={() => setIsVisible(true)}
-          onMouseLeave={() => setIsVisible(false)}
-          onFocus={() => setIsVisible(true)}
-          onBlur={() => setIsVisible(false)}
-        >
-          <Button
-            action={handleFormSubmit}
-            className="CreateUserPage__btn-inner"
-          >
-            Add User
-          </Button>
+        <div className="CreateUserPage__Form">
+          <Form width="545px" height="100%">
+            <InputWrapper
+              id="name"
+              name="name"
+              action={onChangeHandler}
+              value={state.name}
+              placeholder="Contact person name"
+              type="text"
+            />
+            <InputWrapper
+              id="lastname"
+              name="lastname"
+              action={onChangeHandler}
+              value={state.lastname}
+              placeholder="Contact person lastname"
+              type="text"
+            />
+            <InputWrapper
+              id="email"
+              name="email"
+              action={onChangeHandler}
+              value={state.email}
+              placeholder="Contact email address"
+              type="text"
+            />
+            <InputWrapper
+              id="phone"
+              name="phone"
+              action={onChangeHandler}
+              value={state.phone}
+              placeholder="Contact phone number"
+              type="text" // Could be a number, yet perhaps text is better for the (+) symbol with international format
+            />
+            <InputWrapper
+              id="company"
+              name="company"
+              action={onChangeHandler}
+              value={state.company}
+              placeholder="Company name"
+              type="text"
+            />
+            <div className="CreateUserPage__hidden-div">
+              {isVisible && (
+                <span className="CreateUserPage__hidden">Add User</span>
+              )}
+            </div>
+
+            <div
+              className="CreateUserPage__btn"
+              onMouseEnter={() => setIsVisible(true)}
+              onMouseLeave={() => setIsVisible(false)}
+              onFocus={() => setIsVisible(true)}
+              onBlur={() => setIsVisible(false)}
+            >
+              <Button
+                action={handleFormSubmit}
+                className="CreateUserPage__btn-inner"
+              >
+                Add User
+              </Button>
+            </div>
+          </Form>
         </div>
-      </Form>
+      </PageContainer>
     </StyledCreateUserPage>
   );
 };
@@ -133,15 +141,14 @@ const CreateUserPage = () => {
 const StyledCreateUserPage = styled.div`
   display: flex;
   justify-content: center;
-  background-color: ${(props) => props.theme.white};
-  border-radius: 12px;
-  justify-content: center;
-  padding: 0px 0px 40px;
+  width: 100%;
 
-  .CreateUserPage__title {
-    position: relative;
-    top: 15px;
-    right: 1px;
+  .CreateUserPage__Form {
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 0px 0px 40px;
+    background-color: ${(props) => props.theme.white};
   }
 
   .CreateUserPage__hidden-div {
