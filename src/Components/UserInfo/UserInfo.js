@@ -38,22 +38,24 @@ const UserInfo = () => {
 
   return (
     <StyledUserInfo>
-      <BreadCrumbs />
-      <h1 className="page-title">User Info</h1>
+      <PageContainer>
+        <BreadCrumbs />
+        <h1 className="page-title">User Info</h1>
 
-      {user ? (
-        <>
-          {/* <span>{user.userName}</span> */}
-          <span>{user.firstName}</span>
-          <span>{user.lastName}</span>
-          <span>{user.company}</span>
-          <span>{user.email}</span>
-          <span>{user.phoneNumber}</span>
-          <span>{user.role}</span>
-        </>
-      ) : (
-        "Loading..."
-      )}
+        {user ? (
+          <>
+            {/* <span>{user.userName}</span> */}
+            <span>{user.firstName}</span>
+            <span>{user.lastName}</span>
+            <span>{user.company}</span>
+            <span>{user.email}</span>
+            <span>{user.phoneNumber}</span>
+            <span>{user.role}</span>
+          </>
+        ) : (
+          "Loading..."
+        )}
+      </PageContainer>
     </StyledUserInfo>
   );
 };
