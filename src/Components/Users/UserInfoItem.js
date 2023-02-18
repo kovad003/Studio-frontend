@@ -20,27 +20,14 @@ const UserInfoItem = ({
 }) => {
   return (
     <StyledUserInfoItem to={`/dashboard/users/${id}`}>
-      <span className="indicator"></span>
-      <span className="client-name col-1">
+      <span className="UserInfoItem__dummy-indicator"></span>
+      <span className="col-1">
         {firstName} {lastName}
       </span>
-
       <span className="col-2">{company}</span>
       <span className="col-3">{email}</span>
       <span className="col-4">{phoneNumber}</span>
       <span className="col-5">{role}</span>
-      {/* <span className="col-6">{role}</span> */}
-
-      {/*
-      <tr className="UsersPage__table-row" type="button">
-        <td>{firstName}</td>
-        <td>{lastName}</td>
-        <td>{company}</td>
-        <td>{email}</td>
-        <td>{phoneNumber}</td>
-        <td>{role}</td>
-      </tr> 
-      */}
     </StyledUserInfoItem>
   );
 };
@@ -68,7 +55,7 @@ const StyledUserInfoItem = styled(Link)`
     align-items: center;
   }
 
-  .indicator {
+  .UserInfoItem__dummy-indicator {
     position: absolute;
     left: 0;
     top: 0;
@@ -78,18 +65,11 @@ const StyledUserInfoItem = styled(Link)`
     border-radius: 10px 0 0 10px;
   }
 
-  :last-child {
-    margin-bottom: 0;
-  }
-
-  .client-name {
+  .col-1 {
+    grid-column: 1 / span 2;
     display: flex;
     align-items: center;
     justify-content: start;
-  }
-
-  .col-1 {
-    grid-column: 1 / span 2;
   }
 
   .col-3 {
@@ -103,38 +83,6 @@ const StyledUserInfoItem = styled(Link)`
   .col-5 {
     grid-column: 9 / span 2;
   }
-
-  /* .col-1 {
-    grid-column: 1 / span 2;
-  }
-
-  
-  .col-3 {
-    grid-column: 4 / span 4;
-  }
-
-  .col-5 {
-    grid-column: 9 / span 1;
-  }
-
-  .col-6 {
-    grid-column: 10 / span 1;
-    padding-left: 8px;
-  }
-
-  .col-6__btn {
-    background-color: ${(props) => props.theme.dangerBg};
-    width: 36px;
-    height: 36px;
-    border-radius: 18px;
-    padding: 1px 0px 0px 1px;
-    border: none;
-    cursor: pointer;
-
-    :hover {
-      background-color: ${(props) => props.theme.deleteBtnHover};
-    }
-  } */
 `;
 
 export default UserInfoItem;

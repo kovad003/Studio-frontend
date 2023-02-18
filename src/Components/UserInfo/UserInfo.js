@@ -6,7 +6,6 @@ import styled from "styled-components";
 import useAuth from "../../hooks/useAuth";
 import axios from "../../api/axios";
 
-/* const UserInfo = () => { */
 const UserInfo = () => {
   const [user, setUser] = useState(null);
   const { auth } = useAuth();
@@ -14,7 +13,6 @@ const UserInfo = () => {
 
   const getUser = async () => {
     try {
-      /* const response = await axios.get(`/api/useraccount/get-user/${id}`, { */
       const response = await axios.get(
         /*   `/api/useraccount/get-user/d76ce46e-a8f0-4a0f-8e13-12f897f5c1eb`, */
         `/api/useraccount/get-user/${id}`,
@@ -44,13 +42,35 @@ const UserInfo = () => {
 
         {user ? (
           <>
-            {/* <span>{user.userName}</span> */}
-            <span>{user.firstName}</span>
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Lastname</th>
+                  <th>Company</th>
+                  <th>Email</th>
+                  <th>Phone Number</th>
+                  <th>Role</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{user.firstName}</td>
+                  <td>{user.lastName}</td>
+                  <td>{user.company}</td>
+                  <td>{user.email}</td>
+                  <td>{user.phoneNumber}</td>
+                  <td>{user.role}</td>
+                </tr>
+              </tbody>
+            </table>
+
+            {/*  <span>{user.firstName}</span>
             <span>{user.lastName}</span>
             <span>{user.company}</span>
             <span>{user.email}</span>
             <span>{user.phoneNumber}</span>
-            <span>{user.role}</span>
+            <span>{user.role}</span> */}
           </>
         ) : (
           "Loading..."
@@ -61,80 +81,27 @@ const UserInfo = () => {
 };
 
 const StyledUserInfo = styled.section`
+  /* padding: 20px;
+  background-color: #fff; */
+
   padding: 20px;
-  background-color: #fff;
 
-  .projcet--main-content {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
+  table {
+    border-collapse: collapse;
+    width: 100%;
 
-    .project-details {
-      width: 300px;
-
-      .project-details-card {
-        background-color: #eff5ff;
-        border-radius: 10px;
-        padding: 20px;
-
-        .detail-item {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          font-size: 14px;
-          margin-bottom: 6px;
-
-          .client-name {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 4px;
-          }
-        }
-      }
+    th {
+      background-color: ${(props) => props.theme.darkBgColor};
+      color: #fff;
+      text-align: left;
+      padding: 6px;
+    }
+    td {
+      padding: 6px;
     }
 
-    .project-section {
-      margin-top: 20px;
-      flex: 1;
-
-      .no-content {
-        text-align: center;
-        color: #c4c4c4;
-        font-weight: 900;
-      }
-
-      img {
-        width: 150px;
-        height: 100px;
-        border-radius: 10px;
-        object-fit: cover;
-      }
-
-      .project--header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        .project-title {
-          font-size: 18px;
-        }
-
-        .project--edit-btn {
-          width: 120px;
-          height: 30px;
-          background-color: #445e85;
-          color: #fff;
-          border-radius: 4px;
-          border: none;
-        }
-      }
-
-      .project-description {
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 1.8;
-      }
+    tr:nth-child(odd) {
+      background-color: ${(props) => props.theme.projectItemHover};
     }
   }
 `;
