@@ -13,11 +13,9 @@ const UsersPage = ({ id }) => {
   const { auth } = useAuth();
   const navigate = useNavigate();
 
-  function handleClick() {
-    /* navigate(`/dashboard/users/${id}`); */
-    /*  navigate(`/dashboard/users/d76ce46e-a8f0-4a0f-8e13-12f897f5c1eb`); */
+  /*  function handleClick() {
     navigate(`/dashboard/users/${id}`);
-  }
+  } */
 
   const getUsers = async () => {
     try {
@@ -44,33 +42,47 @@ const UsersPage = ({ id }) => {
         <BreadCrumbs />
         <h1 className="page-title">Users page</h1>
 
-        <div className="project-list--titles">
-          <span className="title-1">Client Name</span>
-          <span className="title-2">Company</span>
-          <span className="title-3">Email</span>
-          <span className="title-4">Phone Number</span>
-          <span className="title-5">Role</span>
-        </div>
+        <div className="UsersPage__data-outer">
+          <div className="UsersPage__data-top">
+            <span className="title-1">Client Name</span>
+            <span className="title-2">Company</span>
+            <span className="title-3">Email</span>
+            <span className="title-4">Phone Number</span>
+            <span className="title-5">Role</span>
+          </div>
 
-        {users
-          ? users.map((user) => {
-              const { firstName, lastName, company, email, phoneNumber, role } =
-                user;
-              return <UserInfoItem key={user.id} {...user} />;
-            })
-          : "Loading..."}
-        {/*   </tbody>
-        </table> */}
+          <div className="UsersPage__data-bottom">
+            {users
+              ? users.map((user) => {
+                  const {
+                    firstName,
+                    lastName,
+                    company,
+                    email,
+                    phoneNumber,
+                    role,
+                  } = user;
+                  return <UserInfoItem key={user.id} {...user} />;
+                })
+              : "Loading..."}
+          </div>
+        </div>
       </PageContainer>
     </StyledUsersPage>
   );
 };
 
 const StyledUsersPage = styled.div`
-  /* background-color: #fff; */
-  padding: 20px;
+  .UsersPage__data-outer {
+    background-color: ${(props) => props.theme.white};
+    border-radius: 10px;
+    border: 1px solid ${(props) => props.theme.borderColor};
+    padding: 20px;
+    width: 100%;
+    height: fit-content;
+  }
 
-  .project-list--titles {
+  .UsersPage__data-top {
     width: 100%;
     background-color: ${(props) => props.theme.darkBgColor};
     color: ${(props) => props.theme.white};
@@ -98,11 +110,9 @@ const StyledUsersPage = styled.div`
     }
   }
 
-  .UsersPage__table-row {
-    :hover {
-      background-color: ${(props) => props.theme.aboutHover};
-      cursor: pointer;
-    }
+  .UsersPage__data-bottom {
+    border-radius: 10px;
+    padding-top: 10px;
   }
 `;
 

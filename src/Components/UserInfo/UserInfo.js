@@ -84,7 +84,7 @@ const StyledUserInfo = styled.section`
   /* padding: 20px;
   background-color: #fff; */
 
-  padding: 20px;
+  /*  padding: 20px; */
 
   table {
     border-collapse: collapse;
