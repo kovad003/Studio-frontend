@@ -13,15 +13,11 @@ const UserInfo = () => {
 
   const getUser = async () => {
     try {
-      const response = await axios.get(
-        /*   `/api/useraccount/get-user/d76ce46e-a8f0-4a0f-8e13-12f897f5c1eb`, */
-        `/api/useraccount/get-user/${id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${auth.accessToken}`,
-          },
-        }
-      );
+      const response = await axios.get(`/api/useraccount/get-user/${id}`, {
+        headers: {
+          Authorization: `Bearer ${auth.accessToken}`,
+        },
+      });
       setUser(response.data);
     } catch (error) {
       console.log(error);
@@ -64,13 +60,6 @@ const UserInfo = () => {
                 </tr>
               </tbody>
             </table>
-
-            {/*  <span>{user.firstName}</span>
-            <span>{user.lastName}</span>
-            <span>{user.company}</span>
-            <span>{user.email}</span>
-            <span>{user.phoneNumber}</span>
-            <span>{user.role}</span> */}
           </>
         ) : (
           "Loading..."
@@ -81,11 +70,6 @@ const UserInfo = () => {
 };
 
 const StyledUserInfo = styled.section`
-  /* padding: 20px;
-  background-color: #fff; */
-
-  /*  padding: 20px; */
-
   table {
     border-collapse: collapse;
     width: 100%;

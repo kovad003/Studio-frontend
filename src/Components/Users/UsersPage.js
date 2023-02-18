@@ -8,14 +8,9 @@ import UserInfoItem from "./UserInfoItem";
 import BreadCrumbs from "../BreadCrumbs/BreadCrumbs";
 import PageContainer from "../PageContainer/PageContainer";
 
-const UsersPage = ({ id }) => {
+const UsersPage = () => {
   const [users, setUsers] = React.useState(null);
   const { auth } = useAuth();
-  const navigate = useNavigate();
-
-  /*  function handleClick() {
-    navigate(`/dashboard/users/${id}`);
-  } */
 
   const getUsers = async () => {
     try {
@@ -41,7 +36,6 @@ const UsersPage = ({ id }) => {
       <PageContainer>
         <BreadCrumbs />
         <h1 className="page-title">Users page</h1>
-
         <div className="UsersPage__data-outer">
           <div className="UsersPage__data-top">
             <span className="title-1">Client Name</span>
@@ -50,7 +44,6 @@ const UsersPage = ({ id }) => {
             <span className="title-4">Phone Number</span>
             <span className="title-5">Role</span>
           </div>
-
           <div className="UsersPage__data-bottom">
             {users
               ? users.map((user) => {
@@ -111,7 +104,6 @@ const StyledUsersPage = styled.div`
   }
 
   .UsersPage__data-bottom {
-    border-radius: 10px;
     padding-top: 10px;
   }
 `;
