@@ -3,17 +3,27 @@ import styled from "styled-components";
 import Logo from "../Logo";
 import { NavLink } from "react-router-dom";
 import Button from "../Button/Button";
+import useAuth from "../../hooks/useAuth";
 
 const MainHeader = () => {
+	const { readFromLocalStorage } = useAuth();
+	const user = readFromLocalStorage();
+
 	return (
 		<StyledMainHeader>
 			<Logo />
 			<nav>
 				<StyledNavLink to="/about">About Us</StyledNavLink>
 				<StyledNavLink to="/contact">Contact Us</StyledNavLink>
-				<Button variant="link" type="short" to="/login">
-					Login
-				</Button>
+				{ user ? (
+					<Button variant="link" type="short" to="/dashboard">
+						Dashboard
+					</Button>
+				) : (
+					<Button variant="link" type="short" to="/login">
+						Login
+					</Button>
+				)}
 			</nav>
 		</StyledMainHeader>
 	);
