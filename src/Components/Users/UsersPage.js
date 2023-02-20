@@ -4,15 +4,13 @@ import useAuth from "../../hooks/useAuth";
 import { toast } from "react-toastify";
 import styled from "styled-components";
 import { useNavigate } from "react-router";
+import UserInfoItem from "./UserInfoItem";
+import BreadCrumbs from "../BreadCrumbs/BreadCrumbs";
+import PageContainer from "../PageContainer/PageContainer";
 
-const UsersPage = ({ id }) => {
+const UsersPage = () => {
   const [users, setUsers] = React.useState(null);
   const { auth } = useAuth();
-  const navigate = useNavigate();
-
-  function handleClick() {
-    navigate(`/dashboard/users/${id}`);
-  }
 
   const getUsers = async () => {
     try {
@@ -35,78 +33,78 @@ const UsersPage = ({ id }) => {
 
   return (
     <StyledUsersPage>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Lastname</th>
-            <th>Company</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-            <th>Role</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users
-            ? users.map((user) => {
-                const {
-                  firstName,
-                  lastName,
-                  company,
-                  email,
-                  phoneNumber,
-                  role,
-                } = user;
-                return (
-                  <tr
-                    className="UsersPage__table-row"
-                    type="button"
-                    onClick={handleClick}
-                  >
-                    <td>{firstName}</td>
-                    <td>{lastName}</td>
-                    <td>{company}</td>
-                    <td>{email}</td>
-                    <td>{phoneNumber}</td>
-                    <td>{role}</td>
-                  </tr>
-                );
-              })
-            : "Loading..."}
-        </tbody>
-      </table>
+      <PageContainer>
+        <BreadCrumbs />
+        <h1 className="page-title">Users page</h1>
+        <div className="UsersPage__data-outer">
+          <div className="UsersPage__data-top">
+            <span className="title-1">Client Name</span>
+            <span className="title-2">Company</span>
+            <span className="title-3">Email</span>
+            <span className="title-4">Phone Number</span>
+            <span className="title-5">Role</span>
+          </div>
+          <div className="UsersPage__data-bottom">
+            {users
+              ? users.map((user) => {
+                  const {
+                    firstName,
+                    lastName,
+                    company,
+                    email,
+                    phoneNumber,
+                    role,
+                  } = user;
+                  return <UserInfoItem key={user.id} {...user} />;
+                })
+              : "Loading..."}
+          </div>
+        </div>
+      </PageContainer>
     </StyledUsersPage>
   );
 };
 
 const StyledUsersPage = styled.div`
-  background-color: #fff;
-  padding: 20px;
-
-  table {
-    border-collapse: collapse;
+  .UsersPage__data-outer {
+    background-color: ${(props) => props.theme.white};
+    border-radius: 10px;
+    border: 1px solid ${(props) => props.theme.borderColor};
+    padding: 20px;
     width: 100%;
+    height: fit-content;
+  }
 
-    th {
-      background-color: ${(props) => props.theme.darkBgColor};
-      color: #fff;
-      text-align: left;
-      padding: 6px;
-    }
-    td {
-      padding: 6px;
+  .UsersPage__data-top {
+    width: 100%;
+    background-color: ${(props) => props.theme.darkBgColor};
+    color: ${(props) => props.theme.white};
+    height: 40px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    align-items: center;
+    padding: 0 20px;
+
+    .title-1 {
+      grid-column: 1 / span 2;
     }
 
-    tr:nth-child(odd) {
-      background-color: ${(props) => props.theme.projectItemHover};
+    .title-3 {
+      grid-column: 4 / span 3;
+    }
+
+    .title-4 {
+      grid-column: 7 / span 2;
+    }
+
+    .title-5 {
+      grid-column: 9 / span 2;
     }
   }
 
-  .UsersPage__table-row {
-    :hover {
-      background-color: ${(props) => props.theme.aboutHover};
-      cursor: pointer;
-    }
+  .UsersPage__data-bottom {
+    padding-top: 10px;
   }
 `;
 

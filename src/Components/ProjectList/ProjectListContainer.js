@@ -6,7 +6,7 @@ const ProjectListContainer = () => {
   return (
     <StyledProjectList>
       <div className="project-list--titles">
-        <span className="title-1">Client name</span>
+        <span className="title-1">Client Name</span>
         <span className="title-2">Project ID</span>
         <span className="title-3"> Project Name</span>
         <span className="title-4">Status</span>
