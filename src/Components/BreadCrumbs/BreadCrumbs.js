@@ -9,9 +9,13 @@ const BreadCrumbs = () => {
 	const crumbs = location.pathname
 		.split("/")
 		.filter((crumb) => crumb !== "")
-		.map((crumb) => {
+		.map((crumb, i) => {
 			currentLink += `/${crumb}`;
-			return <Link to={currentLink}>{crumb}</Link>;
+			return (
+				<Link to={currentLink} key={i}>
+					{crumb}
+				</Link>
+			);
 		});
 
 	return (
