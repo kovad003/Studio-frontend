@@ -8,9 +8,19 @@ import axios from "../../api/axios";
 import SectionTitle from "./SectionTitle";
 import Avatar from "../ProjectList/Avatar";
 import Status from "../Status/Status";
+import {
+	MdOutlineDescription,
+	MdOutlineAttachFile,
+	MdOutlineInsertComment,
+	MdEdit,
+} from "react-icons/md";
+import CommentSection from "./CommentSection";
+import { HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
 
 const ProjectInfo = () => {
 	const [project, setProject] = useState(null);
+	const [comments, setComments] = useState([]);
+	const [connection, setConnection] = useState(null);
 	const { auth } = useAuth();
 	const { id } = useParams();
 
@@ -22,13 +32,48 @@ const ProjectInfo = () => {
 				},
 			});
 			setProject(response.data);
+			setComments(response.data.comments);
 		} catch (error) {
 			console.log(error);
 		}
 	};
 
+	const createConnection = async () => {
+		try {
+			const connection = new HubConnectionBuilder()
+				.withUrl(`${process.env.REACT_APP_API_URL}/chat?projectId=${id}`, {
+					accessTokenFactory: () => auth.accessToken,
+				})
+				.withAutomaticReconnect()
+				.configureLogging(LogLevel.Information)
+				.build();
+
+			connection.on("LoadComments", (response) => {
+				setComments(response);
+			});
+
+			connection.on("ReceiveComment", (response) => {
+				console.log(response);
+				setComments((current) => {
+					const newComments = [...current];
+					newComments.push(response);
+					return newComments;
+				});
+			});
+
+			connection.on();
+
+			await connection.start();
+			setConnection(connection);
+		} catch (error) {}
+	};
+
 	useEffect(() => {
 		getProject();
+	}, []);
+
+	useEffect(() => {
+		createConnection();
 	}, []);
 
 	console.log(project);
@@ -44,16 +89,21 @@ const ProjectInfo = () => {
 							<section className="project-section">
 								<div className="project--header">
 									<h1 className="project-title">{project.title}</h1>
-									<button className="project--edit-btn">Edit</button>
 								</div>
-								<SectionTitle>Description</SectionTitle>
+								<SectionTitle>
+									<MdOutlineDescription size={22} />
+									Description
+								</SectionTitle>
 								<p className="project-description">{project.description}</p>
-								<SectionTitle>Attachments</SectionTitle>
+								<SectionTitle>
+									<MdOutlineAttachFile size={22} />
+									Attachments
+								</SectionTitle>
 								<section className="project-attachment">
 									{project.photos.length > 0 ? (
 										project.photos.map((image) => {
 											return (
-												<a href={image.url} target="_blank">
+												<a href={image.url} target="_blank" key={image.id}>
 													<img key={image.id} src={image.url} alt={image.id} />
 												</a>
 											);
@@ -62,14 +112,15 @@ const ProjectInfo = () => {
 										<div className="no-content">No image to display</div>
 									)}
 								</section>
-								<SectionTitle>Comments</SectionTitle>
-								<section className="project-comments">
-									{project.comments.length > 0 ? (
-										"Comments"
-									) : (
-										<div className="no-content">No comments to display</div>
-									)}
-								</section>
+								<SectionTitle>
+									<MdOutlineInsertComment size={22} />
+									Comments
+								</SectionTitle>
+								<CommentSection
+									comments={comments}
+									connection={connection}
+									projectId={id}
+								/>
 							</section>
 							<section className="project-details">
 								<SectionTitle>Project details</SectionTitle>
@@ -96,6 +147,10 @@ const ProjectInfo = () => {
 										</span>
 									</div>
 								</div>
+								<button className="project--edit-btn">
+									<MdEdit size={16} />
+									Edit
+								</button>
 							</section>
 						</main>
 					</>
@@ -110,6 +165,8 @@ const ProjectInfo = () => {
 const StyledProjectInfo = styled.section`
 	padding: 20px;
 	background-color: #fff;
+	border: 1px solid ${(props) => props.theme.borderColor};
+	border-radius: 10px;
 
 	.projcet--main-content {
 		display: flex;
@@ -139,6 +196,23 @@ const StyledProjectInfo = styled.section`
 					}
 				}
 			}
+
+			.project--edit-btn {
+				width: 120px;
+				height: 30px;
+				background-color: #445e85;
+				color: #fff;
+				border-radius: 4px;
+				border: none;
+				margin-top: 10px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				svg {
+					margin-right: 4px;
+				}
+			}
 		}
 
 		.project-section {
@@ -149,6 +223,10 @@ const StyledProjectInfo = styled.section`
 				text-align: center;
 				color: #c4c4c4;
 				font-weight: 900;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
 			}
 
 			img {
@@ -164,16 +242,7 @@ const StyledProjectInfo = styled.section`
 				justify-content: space-between;
 
 				.project-title {
-					font-size: 18px;
-				}
-
-				.project--edit-btn {
-					width: 120px;
-					height: 30px;
-					background-color: #445e85;
-					color: #fff;
-					border-radius: 4px;
-					border: none;
+					font-size: 20px;
 				}
 			}
 

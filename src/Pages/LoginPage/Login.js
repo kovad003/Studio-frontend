@@ -28,10 +28,11 @@ const Login = ({ handleOnChange, credentials, setCredentials }) => {
 			const response = await axios.post("/api/useraccount/login", apiObj);
 			console.log(response);
 			const accessToken = response?.data?.token;
+			const id = response?.data?.id;
 			const roles = [response?.data?.role];
 			const userName = response?.data?.firstName;
 			const lastName = response?.data?.lastName;
-			const user = { userName, lastName, roles };
+			const user = { id, userName, lastName, roles };
 			setAuth({ user, accessToken });
 			setCredentials(initialState);
 
