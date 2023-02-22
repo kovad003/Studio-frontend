@@ -24,9 +24,8 @@ const Login = ({ handleOnChange, credentials, setCredentials }) => {
 			toast.error("Please provide all the credentials");
 		} else {
 			const apiObj = { email: email.value, password: password.value };
-			console.log(apiObj);
+
 			const response = await axios.post("/api/useraccount/login", apiObj);
-			console.log(response);
 			const accessToken = response?.data?.token;
 			const id = response?.data?.id;
 			const roles = [response?.data?.role];

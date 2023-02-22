@@ -7,87 +7,85 @@ import useAuth from "../../hooks/useAuth";
 import axios from "../../api/axios";
 
 const UserInfo = () => {
-  const [user, setUser] = useState(null);
-  const { auth } = useAuth();
-  const { id } = useParams();
+	const [user, setUser] = useState(null);
+	const { auth } = useAuth();
+	const { id } = useParams();
 
-  const getUser = async () => {
-    try {
-      const response = await axios.get(`/api/useraccount/get-user/${id}`, {
-        headers: {
-          Authorization: `Bearer ${auth.accessToken}`,
-        },
-      });
-      setUser(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+	const getUser = async () => {
+		try {
+			const response = await axios.get(`/api/useraccount/get-user/${id}`, {
+				headers: {
+					Authorization: `Bearer ${auth.accessToken}`,
+				},
+			});
+			setUser(response.data);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
-  useEffect(() => {
-    getUser();
-  }, []);
+	useEffect(() => {
+		getUser();
+	}, []);
 
-  console.log(user);
+	return (
+		<StyledUserInfo>
+			<PageContainer>
+				<BreadCrumbs />
+				<h1 className="page-title">User Info</h1>
 
-  return (
-    <StyledUserInfo>
-      <PageContainer>
-        <BreadCrumbs />
-        <h1 className="page-title">User Info</h1>
-
-        {user ? (
-          <>
-            <table>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Lastname</th>
-                  <th>Company</th>
-                  <th>Email</th>
-                  <th>Phone Number</th>
-                  <th>Role</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>{user.firstName}</td>
-                  <td>{user.lastName}</td>
-                  <td>{user.company}</td>
-                  <td>{user.email}</td>
-                  <td>{user.phoneNumber}</td>
-                  <td>{user.role}</td>
-                </tr>
-              </tbody>
-            </table>
-          </>
-        ) : (
-          "Loading..."
-        )}
-      </PageContainer>
-    </StyledUserInfo>
-  );
+				{user ? (
+					<>
+						<table>
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Lastname</th>
+									<th>Company</th>
+									<th>Email</th>
+									<th>Phone Number</th>
+									<th>Role</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>{user.firstName}</td>
+									<td>{user.lastName}</td>
+									<td>{user.company}</td>
+									<td>{user.email}</td>
+									<td>{user.phoneNumber}</td>
+									<td>{user.role}</td>
+								</tr>
+							</tbody>
+						</table>
+					</>
+				) : (
+					"Loading..."
+				)}
+			</PageContainer>
+		</StyledUserInfo>
+	);
 };
 
 const StyledUserInfo = styled.section`
-  table {
-    border-collapse: collapse;
-    width: 100%;
+	table {
+		border-collapse: collapse;
+		width: 100%;
 
-    th {
-      background-color: ${(props) => props.theme.darkBgColor};
-      color: #fff;
-      text-align: left;
-      padding: 6px;
-    }
-    td {
-      padding: 6px;
-    }
+		th {
+			background-color: ${(props) => props.theme.darkBgColor};
+			color: #fff;
+			text-align: left;
+			padding: 6px;
+		}
+		td {
+			padding: 6px;
+		}
 
-    tr:nth-child(odd) {
-      background-color: ${(props) => props.theme.projectItemHover};
-    }
-  }
+		tr:nth-child(odd) {
+			background-color: ${(props) => props.theme.projectItemHover};
+		}
+	}
 `;
 
 export default UserInfo;

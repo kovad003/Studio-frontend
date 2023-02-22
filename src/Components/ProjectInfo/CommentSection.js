@@ -4,6 +4,7 @@ import Button from "../Button/Button";
 import { MdOutlineInsertComment } from "react-icons/md";
 import { toast } from "react-toastify";
 import useAuth from "../../hooks/useAuth";
+import Comment from "./Comment";
 
 const CommentSection = ({ comments, connection, projectId }) => {
 	const [comment, setComment] = React.useState("");
@@ -34,7 +35,7 @@ const CommentSection = ({ comments, connection, projectId }) => {
 		<StyledCommentSection className="project-comments">
 			{comments.length > 0 ? (
 				comments.map((comment) => {
-					return <div key={comment.id}>{comment.body}</div>;
+					return <Comment key={comment.id} comment={comment} />;
 				})
 			) : (
 				<div className="no-content">

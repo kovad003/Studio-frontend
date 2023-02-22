@@ -6,7 +6,6 @@ import { Button } from "../Components";
 
 const NotAllowed = () => {
 	const location = useLocation();
-	console.log(location.state);
 	return (
 		<StyledNotAllowed>
 			<img src={notAllowed} alt="not-allowed" />

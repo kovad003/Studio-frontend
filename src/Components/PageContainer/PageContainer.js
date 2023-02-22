@@ -10,6 +10,7 @@ const StyledPageContainer = styled.section`
 	height: 100%;
 	padding: 20px;
 	position: relative;
+	overflow: auto;
 
 	h1.page-title {
 		font-size: 32px;
