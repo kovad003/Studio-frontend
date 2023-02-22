@@ -16,6 +16,7 @@ import {
 } from "react-icons/md";
 import CommentSection from "./CommentSection";
 import { HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
+import { toast } from "react-toastify";
 
 const ProjectInfo = () => {
 	const [project, setProject] = useState(null);
@@ -53,7 +54,6 @@ const ProjectInfo = () => {
 			});
 
 			connection.on("ReceiveComment", (response) => {
-				console.log(response);
 				setComments((current) => {
 					const newComments = [...current];
 					newComments.push(response);
@@ -61,11 +61,12 @@ const ProjectInfo = () => {
 				});
 			});
 
-			connection.on();
-
 			await connection.start();
 			setConnection(connection);
-		} catch (error) {}
+		} catch (error) {
+			console.log(error);
+			toast.error("Something went wrong while loading the comments");
+		}
 	};
 
 	useEffect(() => {
@@ -75,8 +76,6 @@ const ProjectInfo = () => {
 	useEffect(() => {
 		createConnection();
 	}, []);
-
-	console.log(project);
 
 	return (
 		<PageContainer>

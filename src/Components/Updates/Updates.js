@@ -5,7 +5,7 @@ import BreadCrumbs from "../BreadCrumbs/BreadCrumbs";
 
 const Updates = () => {
 	const location = useLocation();
-	console.log(location);
+
 	return (
 		<PageContainer>
 			<BreadCrumbs />

@@ -5,7 +5,6 @@ import { useLocation } from "react-router";
 const RootPage = () => {
 	const location = useLocation();
 	const path = location.pathname;
-	console.log(path);
 	return (
 		<section>
 			<Outlet />
