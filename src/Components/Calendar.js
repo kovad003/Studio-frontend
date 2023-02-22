@@ -35,7 +35,7 @@ const Calendar = () => {
 };
 
 const StyledCalendar = styled.div`
-	height: 260px;
+	height: 200px;
 	width: 100%;
 	background-color: ${(props) => props.theme.white};
 	border: ${(props) => props.theme.borderColor};

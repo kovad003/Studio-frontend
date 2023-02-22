@@ -7,7 +7,7 @@ const DashboardRight = () => {
 	return (
 		<StyledDashboardRight>
 			<CommentArea />
-			{/* <Calendar /> */}
+			<Calendar />
 		</StyledDashboardRight>
 	);
 };
@@ -15,6 +15,8 @@ const DashboardRight = () => {
 const StyledDashboardRight = styled.div`
 	width: 312px;
 	height: 100%;
+	display: flex;
+	flex-direction: column;
 
 	.comments {
 		background-color: #fff;

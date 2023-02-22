@@ -22,7 +22,7 @@ const BreadCrumbs = () => {
 		<StyledBreadrumbs>
 			{crumbs.map((crumb, i) => {
 				return (
-					<span>
+					<span key={i}>
 						{crumb} {crumbs.length - 1 !== i ? "❯ " : ""}
 					</span>
 				);

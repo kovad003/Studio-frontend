@@ -45,6 +45,7 @@ const StyledDashboardComponent = styled.div`
 	padding: 20px;
 	display: flex;
 	gap: 20px;
+	height: 100%;
 
 	.dashboard-content {
 		flex: 1;
