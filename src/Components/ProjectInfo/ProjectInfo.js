@@ -15,9 +15,12 @@ import {
 	MdEdit,
 } from "react-icons/md";
 import CommentSection from "./CommentSection";
+import { HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
 
 const ProjectInfo = () => {
 	const [project, setProject] = useState(null);
+	const [comments, setComments] = useState([]);
+	const [connection, setConnection] = useState(null);
 	const { auth } = useAuth();
 	const { id } = useParams();
 
@@ -29,13 +32,48 @@ const ProjectInfo = () => {
 				},
 			});
 			setProject(response.data);
+			setComments(response.data.comments);
 		} catch (error) {
 			console.log(error);
 		}
 	};
 
+	const createConnection = async () => {
+		try {
+			const connection = new HubConnectionBuilder()
+				.withUrl(`${process.env.REACT_APP_API_URL}/chat?projectId=${id}`, {
+					accessTokenFactory: () => auth.accessToken,
+				})
+				.withAutomaticReconnect()
+				.configureLogging(LogLevel.Information)
+				.build();
+
+			connection.on("LoadComments", (response) => {
+				setComments(response);
+			});
+
+			connection.on("ReceiveComment", (response) => {
+				console.log(response);
+				setComments((current) => {
+					const newComments = [...current];
+					newComments.push(response);
+					return newComments;
+				});
+			});
+
+			connection.on();
+
+			await connection.start();
+			setConnection(connection);
+		} catch (error) {}
+	};
+
 	useEffect(() => {
 		getProject();
+	}, []);
+
+	useEffect(() => {
+		createConnection();
 	}, []);
 
 	console.log(project);
@@ -65,7 +103,7 @@ const ProjectInfo = () => {
 									{project.photos.length > 0 ? (
 										project.photos.map((image) => {
 											return (
-												<a href={image.url} target="_blank">
+												<a href={image.url} target="_blank" key={image.id}>
 													<img key={image.id} src={image.url} alt={image.id} />
 												</a>
 											);
@@ -78,7 +116,11 @@ const ProjectInfo = () => {
 									<MdOutlineInsertComment size={22} />
 									Comments
 								</SectionTitle>
-								<CommentSection project={project} />
+								<CommentSection
+									comments={comments}
+									connection={connection}
+									projectId={id}
+								/>
 							</section>
 							<section className="project-details">
 								<SectionTitle>Project details</SectionTitle>

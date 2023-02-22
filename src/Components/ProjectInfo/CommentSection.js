@@ -2,14 +2,40 @@ import React from "react";
 import styled from "styled-components";
 import Button from "../Button/Button";
 import { MdOutlineInsertComment } from "react-icons/md";
+import { toast } from "react-toastify";
+import useAuth from "../../hooks/useAuth";
 
-const CommentSection = ({ project }) => {
+const CommentSection = ({ comments, connection, projectId }) => {
 	const [comment, setComment] = React.useState("");
+	const { auth } = useAuth();
+
+	const handleAddComment = async () => {
+		if (!comment) {
+			toast.error("Please add a comment");
+		} else {
+			if (connection) {
+				try {
+					const message = {
+						Body: comment,
+						AuthorId: auth?.user?.id,
+						ProjectId: projectId,
+					};
+					await connection.invoke("SendComment", message);
+					setComment("");
+				} catch (error) {
+					console.log(error);
+					toast.error("A problem accured while sending the comment");
+				}
+			}
+		}
+	};
 
 	return (
 		<StyledCommentSection className="project-comments">
-			{project.comments.length > 0 ? (
-				"Comments"
+			{comments.length > 0 ? (
+				comments.map((comment) => {
+					return <div key={comment.id}>{comment.body}</div>;
+				})
 			) : (
 				<div className="no-content">
 					<MdOutlineInsertComment size={30} />
@@ -22,7 +48,7 @@ const CommentSection = ({ project }) => {
 				value={comment}
 				onChange={(e) => setComment(e.target.value)}
 			></textarea>
-			<Button>Add Comment</Button>
+			<Button action={handleAddComment}>Add Comment</Button>
 		</StyledCommentSection>
 	);
 };
