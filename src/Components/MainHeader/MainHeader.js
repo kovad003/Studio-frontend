@@ -15,8 +15,16 @@ const MainHeader = () => {
 			<nav>
 				<StyledNavLink to="/about">About Us</StyledNavLink>
 				<StyledNavLink to="/contact">Contact Us</StyledNavLink>
-				{ user ? (
-					<Button variant="link" type="short" to="/dashboard">
+				{user ? (
+					<Button
+						variant="link"
+						type="short"
+						to={
+							user.roles === "Admin" || user.roles === "Assistant"
+								? "/dashboard"
+								: "/client/dashboard"
+						}
+					>
 						Dashboard
 					</Button>
 				) : (

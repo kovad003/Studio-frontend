@@ -13,21 +13,25 @@ import Projects from "./Projects/Projects";
 import ProjectsPage from "./Projects/ProjectsPage";
 import AboutTitle from "./About/AboutTitle";
 import UserInfo from "./UserInfo/UserInfo";
+import UserDashboard from "./UserDashboard/UserDashboard";
+import UserDashboardMain from "./UserDashboard/UserDashboardMain";
 
 export {
-  Button,
-  Card,
-  InputWrapper,
-  Form,
-  Sidebar,
-  Dashboard,
-  DashboardHeader,
-  Updates,
-  Users,
-  UserInfo, // AD addition
-  ProjectInfo,
-  PageContainer,
-  Projects,
-  ProjectsPage,
-  AboutTitle,
+	Button,
+	Card,
+	InputWrapper,
+	Form,
+	Sidebar,
+	Dashboard,
+	DashboardHeader,
+	Updates,
+	Users,
+	UserInfo, // AD addition
+	ProjectInfo,
+	PageContainer,
+	Projects,
+	ProjectsPage,
+	AboutTitle,
+	UserDashboard,
+	UserDashboardMain,
 };
