@@ -2,12 +2,22 @@ import React from "react";
 import styled from "styled-components";
 import notFound from "../assets/notFound.svg";
 import { Button } from "../Components";
+import useAuth from "../hooks/useAuth";
 
 const NotFound = () => {
+	const { auth } = useAuth();
 	return (
 		<StyledNotFound>
 			<img src={notFound} alt="not-found" />
-			<Button to={"/dashboard"} variant="link" type="short">
+			<Button
+				to={
+					auth?.user?.roles === "Admin" || auth?.users?.roles === "Assistant"
+						? "/dashboard"
+						: "/client/projects"
+				}
+				variant="link"
+				type="short"
+			>
 				Back to home
 			</Button>
 		</StyledNotFound>

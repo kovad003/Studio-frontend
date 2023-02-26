@@ -22,7 +22,7 @@ const MainHeader = () => {
 						to={
 							user.roles === "Admin" || user.roles === "Assistant"
 								? "/dashboard"
-								: "/client/dashboard"
+								: "/client/projects"
 						}
 					>
 						Dashboard

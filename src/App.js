@@ -24,7 +24,7 @@ function App() {
 			setAuth(user);
 			if (user.roles === "Admin" || user.roles === "Assistant")
 				navigate("/dashboard");
-			else if (user.roles === "Client") navigate("/client/dashboard");
+			else if (user.roles === "Client") navigate("/client/projects");
 
 			toast.success(`Welcome back ${user.user.userName}`);
 			setIsLoading(false);

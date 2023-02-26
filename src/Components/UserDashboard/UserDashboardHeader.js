@@ -20,7 +20,7 @@ const StyledUserDashboardHeader = styled.header`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0 20px;
+	padding: 0 20px 0 0;
 	height: 60px;
 
 	.userdashboard--header--btn {

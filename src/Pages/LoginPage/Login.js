@@ -49,12 +49,12 @@ const Login = ({ handleOnChange, credentials, setCredentials }) => {
 		if (auth.user) {
 			saveToLocalStorage();
 			if (
-				auth.user.roles.includes("Admin") ||
-				auth.user.roles.includes("Assistant")
+				auth?.user?.roles.includes("Admin") ||
+				auth?.user?.roles.includes("Assistant")
 			) {
 				navigate("/dashboard");
-			} else if (auth.user.roles.includes("Client")) {
-				navigate("/client/dashboard");
+			} else if (auth?.user?.roles.includes("Client")) {
+				navigate("/client/projects");
 			}
 		}
 	}, [auth, navigate, saveToLocalStorage]);

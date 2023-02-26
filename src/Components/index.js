@@ -15,6 +15,7 @@ import AboutTitle from "./About/AboutTitle";
 import UserInfo from "./UserInfo/UserInfo";
 import UserDashboard from "./UserDashboard/UserDashboard";
 import UserDashboardMain from "./UserDashboard/UserDashboardMain";
+import UserProject from "./UserDashboard/UserProject";
 
 export {
 	Button,
@@ -34,4 +35,5 @@ export {
 	AboutTitle,
 	UserDashboard,
 	UserDashboardMain,
+	UserProject,
 };
