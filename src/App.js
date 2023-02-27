@@ -22,7 +22,10 @@ function App() {
 		setIsLoading(true);
 		if (user) {
 			setAuth(user);
-			navigate("/dashboard");
+			if (user.roles === "Admin" || user.roles === "Assistant")
+				navigate("/dashboard");
+			else if (user.roles === "Client") navigate("/client/projects");
+
 			toast.success(`Welcome back ${user.user.userName}`);
 			setIsLoading(false);
 		} else {
@@ -34,7 +37,10 @@ function App() {
 		<>
 			<GlobalStyles />
 			<ThemeProvider theme={currentTheme ? theme.dark : theme.default}>
-				{path === "/" || path === "/about" || path === "/login" || path === "/contact" ? (
+				{path === "/" ||
+				path === "/about" ||
+				path === "/login" ||
+				path === "/contact" ? (
 					<MainHeader />
 				) : (
 					""

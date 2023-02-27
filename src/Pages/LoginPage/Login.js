@@ -23,27 +23,38 @@ const Login = ({ handleOnChange, credentials, setCredentials }) => {
 			setCredentials({ email: newEmail, password: newPass });
 			toast.error("Please provide all the credentials");
 		} else {
-			const apiObj = { email: email.value, password: password.value };
+			try {
+				const apiObj = { email: email.value, password: password.value };
+				console.log(apiObj);
 
-			const response = await axios.post("/api/useraccount/login", apiObj);
-			const accessToken = response?.data?.token;
-			const id = response?.data?.id;
-			const roles = [response?.data?.role];
-			const userName = response?.data?.firstName;
-			const lastName = response?.data?.lastName;
-			const user = { id, userName, lastName, roles };
-			setAuth({ user, accessToken });
-			setCredentials(initialState);
+				const response = await axios.post("/api/useraccount/login", apiObj);
+				const accessToken = response?.data?.token;
+				const id = response?.data?.id;
+				const roles = [response?.data?.role];
+				const userName = response?.data?.firstName;
+				const lastName = response?.data?.lastName;
+				const user = { id, userName, lastName, roles };
+				setAuth({ user, accessToken });
+				setCredentials(initialState);
 
-			toast.success(`Welcome ${user.roles[0]}`);
+				toast.success(`Welcome ${user.roles[0]}`);
+			} catch (error) {
+				console.log(error);
+				toast.error(`Something went wrong while logging in`);
+			}
 		}
 	};
 
 	useEffect(() => {
 		if (auth.user) {
 			saveToLocalStorage();
-			if (auth.user.roles.includes("Admin")) {
+			if (
+				auth?.user?.roles.includes("Admin") ||
+				auth?.user?.roles.includes("Assistant")
+			) {
 				navigate("/dashboard");
+			} else if (auth?.user?.roles.includes("Client")) {
+				navigate("/client/projects");
 			}
 		}
 	}, [auth, navigate, saveToLocalStorage]);
