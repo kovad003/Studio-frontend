@@ -22,6 +22,7 @@ const Calendar = () => {
 				const temp = i + 1;
 				return (
 					<span
+						key={i}
 						className={`${temp === today ? "today" : ""} ${
 							temp % 7 === 0 ? "sunday" : ""
 						}`}

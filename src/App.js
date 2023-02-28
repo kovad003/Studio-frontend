@@ -22,11 +22,14 @@ function App() {
 		setIsLoading(true);
 		if (user) {
 			setAuth(user);
-			if (user.roles === "Admin" || user.roles === "Assistant")
+			if (
+				user?.user?.roles[0] === "Admin" ||
+				user?.user?.roles[0] === "Assistant"
+			)
 				navigate("/dashboard");
-			else if (user.roles === "Client") navigate("/client/projects");
+			else if (user?.user?.roles[0] === "Client") navigate("/client/projects");
 
-			toast.success(`Welcome back ${user.user.userName}`);
+			toast.success(`Welcome back ${user?.user?.userName}`);
 			setIsLoading(false);
 		} else {
 			setIsLoading(false);

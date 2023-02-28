@@ -12,7 +12,7 @@ const ProjectListItem = ({ owner, id, title, isActive, createdOn }) => {
 	return (
 		<StyledProjectListItem
 			to={
-				auth?.user?.roles === "Admin" || auth?.user?.roles === "Assistant"
+				auth?.user?.roles[0] === "Admin" || auth?.user?.roles[0] === "Assistant"
 					? `/dashboard/projects/${id}`
 					: `/client/projects/${id}`
 			}

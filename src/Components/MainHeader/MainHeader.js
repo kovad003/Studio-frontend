@@ -6,8 +6,7 @@ import Button from "../Button/Button";
 import useAuth from "../../hooks/useAuth";
 
 const MainHeader = () => {
-	const { readFromLocalStorage } = useAuth();
-	const user = readFromLocalStorage();
+	const { auth } = useAuth();
 
 	return (
 		<StyledMainHeader>
@@ -15,12 +14,13 @@ const MainHeader = () => {
 			<nav>
 				<StyledNavLink to="/about">About Us</StyledNavLink>
 				<StyledNavLink to="/contact">Contact Us</StyledNavLink>
-				{user ? (
+				{auth.user ? (
 					<Button
 						variant="link"
 						type="short"
 						to={
-							user.roles === "Admin" || user.roles === "Assistant"
+							auth?.user?.roles[0] === "Admin" ||
+							auth?.user?.roles[0] === "Assistant"
 								? "/dashboard"
 								: "/client/projects"
 						}
