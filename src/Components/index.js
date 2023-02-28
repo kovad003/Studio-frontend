@@ -16,6 +16,7 @@ import UserInfo from "./UserInfo/UserInfo";
 import UserDashboard from "./UserDashboard/UserDashboard";
 import UserDashboardMain from "./UserDashboard/UserDashboardMain";
 import UserProject from "./UserDashboard/UserProject";
+import CreateProject from "./UserDashboard/CreateProject";
 
 export {
 	Button,
@@ -36,4 +37,5 @@ export {
 	UserDashboard,
 	UserDashboardMain,
 	UserProject,
+	CreateProject,
 };

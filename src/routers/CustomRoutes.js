@@ -10,6 +10,7 @@ import {
 	UserDashboard,
 	UserDashboardMain,
 	UserProject,
+	CreateProject,
 } from "../Components";
 import WelcomePage from "../Pages/WelcomePage";
 import LoginPage from "../Pages/LoginPage/LoginPage";
@@ -58,6 +59,7 @@ const CustomRouter = () => {
 				<Route path="/client" element={<UserDashboard />}>
 					<Route index element={<UserDashboardMain />} />
 					<Route path="/client/projects" element={<UserDashboardMain />} />
+					<Route path="/client/projects/create" element={<CreateProject />} />
 					<Route path="/client/projects/:id" element={<UserProject />} />
 				</Route>
 			</Route>

@@ -3,9 +3,14 @@ import styled from "styled-components";
 import Button from "../Button/Button";
 import Logo from "../Logo";
 import LogoutButton from "../Sidebar/LogoutButton";
+import { useNavigate } from "react-router";
 
 const UserDashboardHeader = () => {
-	const handleButtonClick = () => {};
+	const navigate = useNavigate();
+
+	const handleButtonClick = () => {
+		navigate("/client/projects/create");
+	};
 
 	return (
 		<StyledUserDashboardHeader>
