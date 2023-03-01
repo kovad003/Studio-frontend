@@ -13,14 +13,21 @@ import {
 	MdOutlineAttachFile,
 	MdOutlineInsertComment,
 	MdEdit,
+	MdSave,
+	MdCancel
 } from "react-icons/md";
 import CommentSection from "./CommentSection";
 import { HubConnectionBuilder, LogLevel } from "@microsoft/signalr";
 import { toast } from "react-toastify";
+import DescriptionEdit from "./Edit/Description";
+import StatusEdit from "./Edit/Status";
 
 const ProjectInfo = () => {
 	const [project, setProject] = useState(null);
+	const [tmpProject, setTmpProject] = useState(null);
 	const [comments, setComments] = useState([]);
+	const [isEdit, setIsEdit] = useState(false);
+	const [isUpdates, setIsUpdates] = useState(true); // toggle if there is a new update
 	const [connection, setConnection] = useState(null);
 	const { auth } = useAuth();
 	const { id } = useParams();
@@ -34,8 +41,35 @@ const ProjectInfo = () => {
 			});
 			setProject(response.data);
 			setComments(response.data.comments);
+			setTmpProject(response.data);
 		} catch (error) {
 			console.log(error);
+		}
+	};
+	
+	const editProject = async () => {
+		try {
+			const response = await axios.put(`/api/projects/${id}`, {
+				headers: {
+					Authorization: `Bearer ${auth.accessToken}`,
+					'content-type': 'application/json'
+				},
+				data: tmpProject
+			});
+			
+			if (response.status === 200) {
+				console.log("working")
+				setIsUpdates(true);
+				setIsEdit(!isEdit);
+				toast.success("Project has been updated successfully");
+			} else {
+				console.log("not working")
+				toast.error("Something went wrong when editing the project");
+			};
+			
+		} catch (error) {
+			console.log(error);
+			toast.error("Something went wrong when editing the project");
 		}
 	};
 
@@ -69,9 +103,25 @@ const ProjectInfo = () => {
 		}
 	};
 
+	const editButtonHandler = () => {
+		setIsEdit(!isEdit);
+	};
+
+	const saveButtonHandler = () => {
+		editProject()
+	};
+
+	const cancelButtonHandler = () => {
+		setIsEdit(!isEdit);
+		setTmpProject(project)
+	};
+
 	useEffect(() => {
-		getProject();
-	}, []);
+		if (isUpdates) {
+			getProject();
+			setIsUpdates(false);
+		}
+	}, [isUpdates]);
 
 	useEffect(() => {
 		createConnection();
@@ -93,7 +143,11 @@ const ProjectInfo = () => {
 									<MdOutlineDescription size={22} />
 									Description
 								</SectionTitle>
-								<p className="project-description">{project.description}</p>
+								{ isEdit ? (
+									<DescriptionEdit tmpProject={tmpProject} setTmpProject={setTmpProject} />
+								) : (
+									<p className="project-description">{project.description}</p>
+								)}
 								<SectionTitle>
 									<MdOutlineAttachFile size={22} />
 									Attachments
@@ -127,7 +181,11 @@ const ProjectInfo = () => {
 									<div className="detail-item">
 										<span>Status: </span>
 										<span>
-											<Status type={project.isActive} />
+											{ isEdit ? (
+												<StatusEdit tmpProject={tmpProject} setTmpProject={setTmpProject} />
+											) : (
+												<Status type={project.isActive} />
+											)}
 										</span>
 									</div>
 									<div className="detail-item">
@@ -146,10 +204,23 @@ const ProjectInfo = () => {
 										</span>
 									</div>
 								</div>
-								<button className="project--edit-btn">
-									<MdEdit size={16} />
-									Edit
-								</button>
+									{ isEdit ? (
+										<div className="wrapper-project-edit-btn">
+											<button className="project--edit-btn" onClick={saveButtonHandler}>
+												<MdSave size={16} />
+												Save
+											</button>
+											<button className="project--edit-btn" onClick={cancelButtonHandler}>
+												<MdCancel size={16} />
+												Cancel
+											</button>
+										</div>
+									) : (
+										<button className="project--edit-btn" onClick={editButtonHandler}>
+											<MdEdit size={16} />
+											Edit
+										</button>
+									)}
 							</section>
 						</main>
 					</>
@@ -194,6 +265,11 @@ const StyledProjectInfo = styled.section`
 						gap: 4px;
 					}
 				}
+			}
+
+			.wrapper-project-edit-btn {
+				display: flex;
+				justify-content: space-evenly;
 			}
 
 			.project--edit-btn {
