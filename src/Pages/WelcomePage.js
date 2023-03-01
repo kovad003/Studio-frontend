@@ -29,6 +29,7 @@ const WelcomePage = () => {
 
             <div className="WelcomePage__button-div">
               <Button
+                /* style={{ "border-radius": "6px" }} */
                 className="WelcomePage__button"
                 variant="link"
                 type="short"
@@ -179,11 +180,16 @@ const StyledWelcomePage = styled.section`
 
   .WelcomePage__button-div {
     margin-top: 10px;
-    border-radius: 6px;
+    /* border-radius: 6px; */
   }
 
-  // Media Query for a responsive design on devices of 850px width or less
-  @media (max-width: 850px) {
+  /* .WelcomePage__button {
+    border-radius: 6px !important;
+  } */
+
+  // Media Query for a responsive design on devices of 950px width or less
+  /* @media (max-width: 850px) { */
+  @media (max-width: 950px) {
     padding-left: 5px;
     padding-right: 5px;
 
@@ -194,17 +200,28 @@ const StyledWelcomePage = styled.section`
     .WelcomePage__content-inner {
       flex-direction: column;
       position: relative;
+
+      align-items: center;
+      background-color: green;
+
       .WelcomePage__content-left {
         width: 100%;
-        padding: 0px 10px 5% 10px;
+        /*  padding: 0px 10px 5% 10px; */
+        padding: 0px 15px 5% 15px;
         position: inherit;
         bottom: 5%;
         max-height: 340px;
       }
 
       .WelcomePage__content-right {
-        width: 100%;
-        padding: 10px 10px 15px 10px;
+        /* width: 100%; */
+        width: 70%;
+        justify-content: center;
+        align-content: center;
+        padding: 10px 10px 35px 10px;
+        background-color: red;
+        position: relative;
+        top: 20px;
       }
     }
 
