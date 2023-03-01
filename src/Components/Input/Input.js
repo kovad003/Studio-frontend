@@ -22,6 +22,7 @@ const StyledInput = styled.input`
 	padding: 0 20px;
 	transition: all 0.3s ease;
 	font-size: 18px;
+	font-family: "Lexend",sans-serif;
 
 	:hover {
 		border-color: ${(props) => props.theme.btnHover};
