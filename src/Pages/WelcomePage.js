@@ -7,7 +7,6 @@ const WelcomePage = () => {
   return (
     <StyledWelcomePage>
       <div className="WelcomePage__content-outer">
-        {/*  <div className="WelcomePage__content-title"></div> */}
         <div className="WelcomePage__content-inner">
           <div className="WelcomePage__content-left">
             <h1 className="WelcomePage__content-h1">Studio Portal Web App</h1>
@@ -63,8 +62,6 @@ const WelcomePage = () => {
             </div>
           </div>
         </div>
-
-        {/*  <div className="WelcomePage__footer-div"></div> */}
       </div>
 
       <div className="WelcomePage__copyright-div">
@@ -100,7 +97,6 @@ const StyledWelcomePage = styled.section`
     flex: 1;
     display: flex;
     border-radius: 20px;
-
     height: 85%;
 
     .WelcomePage__content-inner {
@@ -113,7 +109,6 @@ const StyledWelcomePage = styled.section`
       display: flex;
       flex-direction: column;
       height: auto;
-      /* padding: 20px; */
       padding: 0px 20px 5% 20px;
       width: 40%;
       justify-content: center;
@@ -147,7 +142,6 @@ const StyledWelcomePage = styled.section`
       display: flex;
       flex-direction: column;
       padding: 20px;
-
       width: 40%;
       justify-content: center;
 
@@ -199,15 +193,10 @@ const StyledWelcomePage = styled.section`
 
     .WelcomePage__content-inner {
       flex-direction: column;
-      /*  justify-content: center; */
-
       position: relative;
-
       .WelcomePage__content-left {
         width: 100%;
-
         padding: 0px 10px 5% 10px;
-
         position: inherit;
         bottom: 5%;
         max-height: 340px;
@@ -215,7 +204,6 @@ const StyledWelcomePage = styled.section`
 
       .WelcomePage__content-right {
         width: 100%;
-
         padding: 10px 10px 15px 10px;
       }
     }
