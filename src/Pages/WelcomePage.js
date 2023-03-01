@@ -1,12 +1,13 @@
 import Button from "../Components/Button/Button";
 import styled from "styled-components";
 import FreepikOffice from "../assets/images/freepik-office-1.avif";
+import OfficeScene from "../assets/images/office-scene.jpg";
 
 const WelcomePage = () => {
   return (
     <StyledWelcomePage>
       <div className="WelcomePage__content-outer">
-        <div className="WelcomePage__content-title">{/* <AboutTitle /> */}</div>
+        <div className="WelcomePage__content-title"></div>
         <div className="WelcomePage__content-inner">
           <div className="WelcomePage__content-left">
             <h1 className="WelcomePage__content-h1">
@@ -14,8 +15,10 @@ const WelcomePage = () => {
             </h1>
 
             <p className="WelcomePage__content-p2">
-              For registered clients, the Studio Portal Web App provides a
-              platform for clients to send projects and tasks to
+              <span>Connect. Create. Communicate. </span> The Studio Portal Web
+              App does it all, and more! For registered clients, the Studio
+              Portal Web App provides a platform for clients to send projects
+              and tasks to
               <span> www.davidkele.com</span> via an interactive, private
               dashboard. Alongside sending project tasks, clients can
               communicate directly with the studio via an innovative, in-app
@@ -62,8 +65,9 @@ const WelcomePage = () => {
             <picture>
               <img
                 className="WelcomePage__picture"
-                src={FreepikOffice}
-                alt="About"
+                /*  src={FreepikOffice} */
+                src={OfficeScene}
+                alt="welcome-pic"
               />
             </picture>
 
@@ -105,19 +109,23 @@ const StyledWelcomePage = styled.section`
     font-weight: bold;
   }
 
+  /* img {
+    opacity: 0.7;
+  } */
+
   .WelcomePage__content-outer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* border-radius: 12px; */
     position: relative;
     overflow: hidden;
     top: 18px;
-    background-color: ${(props) => props.theme.white};
+    /*  background-color: ${(props) => props.theme.white}; */
     flex: 1;
     display: flex;
     border-radius: 20px;
-    box-shadow: 0 4px 30px 0 rgba(11, 99, 229, 0.13);
+    /* box-shadow: 0 4px 30px 0 rgba(11, 99, 229, 0.13); */
+    background-color: green;
 
     .WelcomePage__content-title {
       /* width: 100%; */
@@ -158,19 +166,25 @@ const StyledWelcomePage = styled.section`
     .WelcomePage__content-left {
       display: flex;
       flex-direction: column;
-      width: 50%;
       height: auto;
       padding: 20px;
+      /* width: 50%; */
+      width: 40%;
+      justify-content: center;
+      background-color: yellow;
     }
 
     .WelcomePage__content-right {
       display: flex;
       flex-direction: column;
-      width: 50%;
       padding: 20px;
+      background-color: red;
+      /* width: 50%; */
+      width: 40%;
+      justify-content: center;
 
       .WelcomePage__picture {
-        border-radius: 12px;
+        /* border-radius: 12px; */
         width: 100%;
         height: 100%;
         object-fit: cover;
