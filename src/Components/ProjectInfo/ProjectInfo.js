@@ -25,6 +25,8 @@ import DescriptionEdit from "./Edit/Description";
 import StatusEdit from "./Edit/Status";
 import Button from "../Button/Button";
 import ImageLoading from "../ImageLoading";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
 const ProjectInfo = () => {
 	const [project, setProject] = useState(null);
@@ -37,6 +39,40 @@ const ProjectInfo = () => {
 	const [images, setImages] = useState([]);
 	const { auth } = useAuth();
 	const { id } = useParams();
+
+	const deleteImage = async (id) => {
+		try {
+			await axios.delete(`/api/photos/${id}`, {
+				headers: {
+					Authorization: `Bearer ${auth.accessToken}`,
+				},
+			});
+			toast.success("Image deleted successfully!");
+			const tempProject = { ...project };
+			const newImages = tempProject.photos.filter((photo) => photo.id !== id);
+			tempProject.photos = newImages;
+			setProject(tempProject);
+		} catch (error) {
+			console.log(error);
+			toast.error("Something went wrong while deleting the image");
+		}
+	};
+
+	const handleImageDelete = (id) => {
+		confirmAlert({
+			message: "Do you want to delete this image?",
+			buttons: [
+				{
+					label: "Delete",
+					onClick: () => deleteImage(id),
+				},
+				{
+					label: "No",
+					onClick: console.log("closed"),
+				},
+			],
+		});
+	};
 
 	const fileUploadHandler = (e) => {
 		const tempImg = e.target.files;
@@ -75,8 +111,6 @@ const ProjectInfo = () => {
 			toast.error("Please add an image");
 		}
 	};
-
-	const handleImageDelete = () => {};
 
 	const getProject = async () => {
 		try {
@@ -219,7 +253,7 @@ const ProjectInfo = () => {
 																alt={image.id}
 															/>
 														</a>
-														<button onClick={handleImageDelete()}>
+														<button onClick={() => handleImageDelete(image.id)}>
 															Delete
 														</button>
 													</div>
