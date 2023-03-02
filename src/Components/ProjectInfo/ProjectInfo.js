@@ -76,7 +76,7 @@ const ProjectInfo = () => {
 		}
 	};
 
-	const deletePhotoHandler = () => {};
+	const handleImageDelete = () => {};
 
 	const getProject = async () => {
 		try {
@@ -219,7 +219,9 @@ const ProjectInfo = () => {
 																alt={image.id}
 															/>
 														</a>
-														<button>Delete</button>
+														<button onClick={handleImageDelete()}>
+															Delete
+														</button>
 													</div>
 												);
 											})
@@ -420,6 +422,7 @@ const StyledProjectInfo = styled.section`
 					display: flex;
 					padding: 0 0 20px 0;
 					gap: 10px;
+					flex-flow: wrap;
 
 					> div {
 						background-color: #fbfbfb;
