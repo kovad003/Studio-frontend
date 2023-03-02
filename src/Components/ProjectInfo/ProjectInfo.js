@@ -129,12 +129,17 @@ const ProjectInfo = () => {
 
 	const editProject = async () => {
 		try {
-			const response = await axios.put(`/api/projects/${id}`, {
+			const project = tmpProject;
+			delete project.owner;
+			delete project.photos;
+			delete project.comments;
+			delete project.id;
+
+			const response = await axios.put(`/api/projects/${id}`, project, {
 				headers: {
 					Authorization: `Bearer ${auth.accessToken}`,
 					"content-type": "application/json",
 				},
-				data: tmpProject,
 			});
 
 			if (response.status === 200) {
@@ -443,6 +448,9 @@ const StyledProjectInfo = styled.section`
 				flex-direction: column;
 				gap: 20px;
 				justify-content: center;
+				width: 100%;
+				background-color: #fff !important;
+				border: none !important;
 			}
 
 			.project-description {
