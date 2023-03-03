@@ -152,6 +152,39 @@ const ProjectInfo = () => {
 		}
 	};
 
+
+  const handleProjectDelete = () => {
+		confirmAlert({
+			message: "Are you sure you want to delete this project?",
+			buttons: [
+				{
+					label: "Delete Project",
+					onClick: () => deleteProject(),
+				},
+				{
+					label: "No",
+					onClick: console.log("closed"),
+				},
+			],
+		});
+	};
+
+  const deleteProject = async () => {
+		try {
+      await axios.delete(`/api/projects/${id}`, {
+				headers: {
+					Authorization: `Bearer ${auth.accessToken}`,
+				},
+			});
+      console.log("deleted");
+      setIsEdit(!isEdit);
+      toast.success("Project deleted successfully");
+		} catch (error) {
+			console.log(error);
+			toast.error("Something went wrong when deleting the project");
+		}
+	};
+
 	const handleRemoveFromPreview = (name) => {
 		const tempImages = [...images];
 		const temp = tempImages.filter((image) => image.name !== name);
@@ -390,6 +423,17 @@ const ProjectInfo = () => {
 										<MdEdit size={16} />
 										Edit
 									</button>
+								)}
+                {!isEdit && (
+									<div>
+										<button
+											className="project--delete-btn"
+											onClick={handleProjectDelete}
+										>
+											<MdCancel size={16} />
+											Delete
+										</button>
+									</div>
 								)}
 							</section>
 						</main>
@@ -647,6 +691,23 @@ const StyledProjectInfo = styled.section`
 				}
 			}
 		}
+    
+    .project--delete-btn {
+      width: 120px;
+      height: 30px;
+      background-color: #900C3F;
+      color: #fff;
+      border-radius: 4px;
+      border: none;
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        margin-right: 4px;
+      }
+    }
 	}
 `;
 
