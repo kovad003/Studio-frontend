@@ -493,6 +493,9 @@ const StyledProjectInfo = styled.section`
 				flex-direction: column;
 				gap: 20px;
 				justify-content: center;
+				width: 100%;
+				background-color: #fff !important;
+				border: none !important;
 			}
 
 			.project-description {
