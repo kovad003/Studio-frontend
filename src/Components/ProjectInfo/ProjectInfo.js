@@ -138,10 +138,10 @@ const ProjectInfo = () => {
 			const response = await axios.put(`/api/projects/${id}`, project, {
 				headers: {
 					Authorization: `Bearer ${auth.accessToken}`,
-					"content-type": "application/json",
+					'content-type': 'application/json',
 				},
 			});
-
+			
 			if (response.status === 200) {
 				console.log("working");
 				setIsUpdates(true);
@@ -150,7 +150,8 @@ const ProjectInfo = () => {
 			} else {
 				console.log("not working");
 				toast.error("Something went wrong when editing the project");
-			}
+			};
+			
 		} catch (error) {
 			console.log(error);
 			toast.error("Something went wrong when editing the project");
@@ -693,10 +694,16 @@ const StyledProjectInfo = styled.section`
 				display: flex;
 				align-items: center;
 				justify-content: center;
+				cursor: pointer;
 
 				svg {
 					margin-right: 4px;
 				}
+			}
+
+			.project--edit-btn:hover {
+				background-color: #5e7493;
+		    transition: all 0.3s ease;
 			}
 		}
     
